@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { createPureComponent } from 'utils/createPureComponent';
 
 import EntitiesContainer from 'components/Entities/EntitiesContainer';
+import GroundsContainer from 'components/Grounds/GroundsContainer';
 
 import 'components/World/World.scss';
 
@@ -15,6 +16,7 @@ export default createPureComponent({
     return (
       <div className="world">
         <EntitiesContainer />
+        <GroundsContainer />
       </div>
     );
   }
