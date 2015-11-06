@@ -11,7 +11,8 @@ export const initialState = Immutable.fromJS({
   time: 120,
   player: {
     row: 49,
-    col: 22
+    col: 22,
+    direction: 'left'
   },
   tapes: [],
   grounds: parseGrounds(level1.grounds),
