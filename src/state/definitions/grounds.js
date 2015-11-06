@@ -9,11 +9,3 @@ export const grounds = {
   GH: { type: 'sky' },
   GI: { type: 'roadline' }
 };
-
-export function createGround(shortType) {
-  return (
-    (shortType in grounds) ?
-    { ...grounds[shortType] } :
-    grounds.GA
-  );
-};

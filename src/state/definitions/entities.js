@@ -1,4 +1,4 @@
-const entities = {
+export const entities = {
   // Special
   SA: { type: 'tape' },
   SB: { type: 'door' },
@@ -37,12 +37,4 @@ const entities = {
   KG: { type: 'firetruck' },
   KH: { type: 'police' },
   KI: { type: 'ambulance' },
-};
-
-export function createEntity(shortType) {
-  return (
-    (shortType in entities) ?
-    { ...entities[shortType] } :
-    null
-  );
 };
