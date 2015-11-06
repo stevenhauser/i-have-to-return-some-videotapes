@@ -1,7 +1,7 @@
 import curry from 'lodash/function/curry';
 import rearg from 'lodash/function/rearg';
 
-import coordsToId from 'state/utils/coordsToId';
+import { coordsToId } from 'state/utils/coordsToId';
 import { entities } from 'state/definitions/entities';
 import { grounds } from 'state/definitions/grounds';
 
