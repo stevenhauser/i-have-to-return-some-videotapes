@@ -2,6 +2,7 @@ const entities = {
   // Special
   SA: { type: 'tape' },
   SB: { type: 'door' },
+  SC: { type: 'person' },
   // Powerups
   PA: { type: 'sunglasses' },
   PB: { type: 'silverware' },

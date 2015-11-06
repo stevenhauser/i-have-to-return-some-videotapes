@@ -5,6 +5,7 @@ import { createPureComponent } from 'utils/createPureComponent';
 
 import EntitiesContainer from 'components/Entities/EntitiesContainer';
 import GroundsContainer from 'components/Grounds/GroundsContainer';
+import PlayerContainer from 'components/Player/PlayerContainer';
 
 import 'components/World/World.scss';
 
@@ -17,6 +18,7 @@ export default createPureComponent({
       <div className="world">
         <EntitiesContainer />
         <GroundsContainer />
+        <PlayerContainer />
       </div>
     );
   }

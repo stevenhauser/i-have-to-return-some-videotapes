@@ -20,10 +20,11 @@ export default createPureComponent({
   },
 
   render() {
-    const { block, col, row, type } = this.props;
+    const { block, col, row, type, className } = this.props;
     const attrs = {
       style: gridCoordsToStyle(row, col),
       className: classNames(
+        className,
         'tile',
         block,
         `${block}--${type}`
