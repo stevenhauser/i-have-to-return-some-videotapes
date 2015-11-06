@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 
 import { createPureComponent } from 'utils/createPureComponent';
 
-import World from 'components/World/World';
+import EntitiesContainer from 'components/Entities/EntitiesContainer';
+
+import 'components/World/World.scss';
 
 export default createPureComponent({
 
-  displayName: 'Game',
+  displayName: 'World',
 
   render() {
     return (
-      <div className="game">
-        <World />
+      <div className="world">
+        <EntitiesContainer />
       </div>
     );
   }

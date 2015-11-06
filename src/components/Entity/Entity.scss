@@ -1,0 +1,43 @@
+@import '~styles/vars';
+
+.entity {
+
+  width: $cellSize;
+  height: $cellSize;
+  position: absolute;
+  font: #{$cellSize}/#{$cellSize} "Apple Color Emoji";
+
+  &--tape::before       { content: "📼"; }
+  &--door::before       { content: "🚪"; }
+  &--sunglasses::before { content: "👓"; }
+  &--silverware::before { content: "🍴"; }
+  &--speedboat::before  { content: "🚤"; }
+  &--boots::before      { content: "👢"; }
+  &--hammer::before     { content: "🔨"; }
+  &--treeA::before      { content: "🌲"; }
+  &--treeB::before      { content: "🎄"; }
+  &--building::before   { content: "🏢"; }
+  &--rabbit::before     { content: "🐇"; }
+  &--chicken::before    { content: "🐣"; }
+  &--fishA::before      { content: "🐟"; }
+  &--fishB::before      { content: "🐠"; }
+  &--turtle::before     { content: "🐢"; }
+  &--camel::before      { content: "🐫"; }
+  &--cloud::before      { content: "☁"; }
+  &--creepsun::before   { content: "🌞"; }
+  &--sun::before        { content: "☀"; }
+  &--corn::before       { content: "🌽"; }
+  &--wave::before       { content: "🌊"; }
+  &--fire::before       { content: "🔥"; }
+  &--snowman::before    { content: "⛄️"; }
+  &--bee::before        { content: "🐝"; }
+  &--gator::before      { content: "🐊"; }
+  &--snake::before      { content: "🐍"; }
+  &--carA::before       { content: "🚗"; }
+  &--carB::before       { content: "🚙"; }
+  &--taxi::before       { content: "🚕"; }
+  &--firetruck::before  { content: "🚒"; }
+  &--police::before     { content: "🚓"; }
+  &--ambulance::before  { content: "🚑"; }
+
+}
