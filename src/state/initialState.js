@@ -1,6 +1,10 @@
 import Immutable from 'immutable';
 
-import { parseGrounds, parseEntities } from 'state/utils/parseLevel';
+import {
+  parseGrounds,
+  parseEntities
+} from 'state/utils/parseLevel';
+
 import * as level1 from 'state/levels/level-01';
 
 export const initialState = Immutable.fromJS({

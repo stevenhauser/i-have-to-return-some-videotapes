@@ -1,0 +1,19 @@
+@import '~styles/vars';
+
+.ground {
+
+  &--grass    { background-color: #76b55e; }
+  &--path     { background-color: #d2a354; }
+  &--water    { background-color: #68a4b7; }
+  &--sand     { background-color: #efdfa7; }
+  &--forest   { background-color: #536a3e; }
+  &--sidewalk { background-color: #d8d8d8; }
+  &--sky      { background-color: #b8ecfe; }
+
+  &--road     { background-color: #565656; }
+  &--roadline {
+    background-color: #565656;
+    border-top: 3px dashed #eed800;
+  }
+
+}
