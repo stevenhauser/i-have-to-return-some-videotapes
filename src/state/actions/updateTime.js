@@ -6,5 +6,5 @@ export function reduce(state, action) {
 };
 
 export function toUpdateTime() {
-  return { direction };
+  return { type, direction };
 };
