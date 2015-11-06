@@ -5,17 +5,25 @@ import { connect } from 'react-redux';
 
 import immutableToJs from 'utils/immutableToJs';
 
+import { toMove } from 'state/actions/move';
+import player from 'state/models/player';
+
 import Player from 'components/Player/Player';
 
 function mapStateToProps(state) {
   return {
-    col: state.getIn(['player', 'col']),
-    row: state.getIn(['player', 'row']),
+    col: player.getCol(state),
+    row: player.getRow(state),
+    direction: player.getDirection(state),
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    onMove(direction) {
+      dispatch(toMove(direction));
+    }
+  };
 };
 
 export default connect(
