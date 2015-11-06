@@ -1,0 +1,19 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font: 1.4em / 1 sans-serif;
+}
+
+html, body,
+h1, h2, h3, h4, h5, h6,
+p, ol, ul, dl, dt, dd, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

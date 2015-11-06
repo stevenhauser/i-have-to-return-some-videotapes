@@ -4,6 +4,7 @@
   "description": "Collect and return your videotapes that are scattered about the woods",
   "main": "src/index.js",
   "scripts": {
+    "start": "babel-node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,31 @@
   "bugs": {
     "url": "https://github.com/stevenhauser/i-have-to-return-some-videotapes/issues"
   },
-  "homepage": "https://github.com/stevenhauser/i-have-to-return-some-videotapes#readme"
+  "homepage": "https://github.com/stevenhauser/i-have-to-return-some-videotapes#readme",
+  "dependencies": {
+    "classnames": "^2.2.0",
+    "immutable": "^3.7.5",
+    "lodash": "^3.10.1",
+    "react": "^0.14.2",
+    "react-addons-pure-render-mixin": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-redux": "^4.0.0",
+    "redux": "^3.0.4",
+    "redux-thunk": "^1.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "babel": "^5.0.0",
+    "babel-loader": "^5.0.0",
+    "babel-plugin-react-transform": "^1.1.1",
+    "css-loader": "^0.22.0",
+    "express": "^4.13.3",
+    "node-sass": "^3.4.1",
+    "react-transform-hmr": "^1.0.1",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.3",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.4.1"
+  }
 }
