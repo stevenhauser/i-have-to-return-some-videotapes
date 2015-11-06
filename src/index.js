@@ -8,6 +8,7 @@ import createStore from 'utils/createStore';
 import Game from 'components/Game/Game';
 
 import 'styles/base.scss';
+import 'styles/utils.scss';
 
 const store = createStore();
 
