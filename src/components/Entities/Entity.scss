@@ -2,10 +2,8 @@
 
 .entity {
 
-  width: $cellSize;
-  height: $cellSize;
-  position: absolute;
   font: #{$cellSize}/#{$cellSize} "Apple Color Emoji";
+  z-index: 1;
 
   &--tape::before       { content: "📼"; }
   &--door::before       { content: "🚪"; }

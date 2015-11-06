@@ -5,11 +5,14 @@ import { connect } from 'react-redux';
 
 import immutableToJs from 'utils/immutableToJs';
 
-import Entities from 'components/Entities/Entities';
+import Tiles from 'components/Tiles/Tiles';
+
+import 'components/Entities/Entity.scss';
 
 function mapStateToProps(state) {
   return {
-    entities: immutableToJs(state.get('entities'))
+    block: 'entity',
+    tiles: immutableToJs(state.get('entities'))
   };
 }
 
@@ -20,4 +23,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Entities);
+)(Tiles);
