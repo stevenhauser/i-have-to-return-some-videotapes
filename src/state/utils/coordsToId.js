@@ -1,1 +1,3 @@
-export default (col, row) => `${col}-${row}`;
+export const coordsToId = (col, row) => `${col}-${row}`;
+
+export const idToCoords = (id) => id.split('-');
