@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
+import values from 'lodash/object/values';
+
 import { createPureComponent } from 'utils/createPureComponent';
 
 import Tile from 'components/Tile/Tile';
@@ -17,32 +19,25 @@ export default createPureComponent({
     // )
   },
 
-  renderTile(block, row, col, tile) {
+  renderTile(tile) {
+    const { block } = this.props;
+    const { type, row, col } = tile;
     return !tile ? null : (
       <Tile
-        key={`${tile.type}-${row}-${col}`}
+        key={`${type}-${row}-${col}`}
         block={block}
         col={col}
         row={row}
-        type={tile.type}
+        type={type}
       />
     );
   },
 
   render() {
-    const { block, tiles } = this.props;
-    const nodes = tiles.reduce((arr, row, ri) => (
-      [
-        ...arr,
-        // Note that we don't `filter` here because we need
-        // to preserve the row and column indicies. `filter`ing
-        // would mess up the columns and therefore the level grid.
-        ...row.map((tile, ci) => this.renderTile(block, ri, ci, tile))
-      ]
-    ), []);
+    const { tiles } = this.props;
     return (
       <div className="tiles">
-        {nodes}
+        {values(tiles).map(this.renderTile)}
       </div>
     );
   }
