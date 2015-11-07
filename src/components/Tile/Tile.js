@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import { createPureComponent } from 'utils/createPureComponent';
 import { gridCoordsToStyle } from 'utils/gridCoordsToStyle';
+import { playSound } from 'utils/sound';
 
 import 'components/Tile/Tile.scss';
 
@@ -17,6 +18,11 @@ export default createPureComponent({
     col: PropTypes.number.isRequired,
     row: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
+  },
+
+  componentDidMount() {
+    const { type } = this.props;
+    if (type === 'ghost') { playSound('ghostified'); }
   },
 
   render() {

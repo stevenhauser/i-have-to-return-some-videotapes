@@ -6,8 +6,11 @@ import padLeft from 'lodash/string/padLeft';
 import classNames from 'classnames';
 
 import { createPureComponent } from 'utils/createPureComponent';
+import { playSound } from 'utils/sound';
 
 import { powerupTypes } from 'state/definitions/entities';
+
+import HudPowerup from 'components/HudPowerup/HudPowerup'
 
 import 'components/Hud/Hud.scss';
 
@@ -16,10 +19,11 @@ export default createPureComponent({
   displayName: 'Hud',
 
   propTypes: {
-    time: PropTypes.number.isRequired,
+    numDeaths: PropTypes.number.isRequired,
     numTapesCollected: PropTypes.number.isRequired,
     numTapesTotal: PropTypes.number.isRequired,
-    powerups: PropTypes.arrayOf(PropTypes.string)
+    powerups: PropTypes.arrayOf(PropTypes.string),
+    time: PropTypes.number.isRequired,
   },
 
   formatTime(time) {
@@ -28,16 +32,20 @@ export default createPureComponent({
     return `${min}:${sec}`;
   },
 
+  componentDidUpdate(prev) {
+    const { numDeaths, numTapesCollected } = this.props;
+    if (numDeaths > prev.numDeaths) { playSound('bummer'); }
+    if (numTapesCollected > prev.numTapesCollected) { playSound('oh'); }
+  },
+
   renderPowerups(collected) {
-    return powerupTypes.map((type) => {
-      const className = classNames({
-        'entity': true,
-        [`entity--${type}`]: true,
-        'hud__powerup': true,
-        'hud__powerup--collected': collected.indexOf(type) > -1,
-      });
-      return <div key={type} className={className} />;
-    });
+    return powerupTypes.map((type) => (
+      <HudPowerup
+        key={type}
+        hasCollected={collected.indexOf(type) > -1}
+        type={type}
+      />
+    ));
   },
 
   render() {
