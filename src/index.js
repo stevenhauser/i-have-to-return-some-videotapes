@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import createStore from 'utils/createStore';
 
-import Game from 'components/Game/Game';
+import GameContainer from 'components/Game/GameContainer';
 
 import 'styles/base.scss';
 import 'styles/utils.scss';
@@ -14,7 +14,7 @@ const store = createStore();
 
 const app = (
   <Provider store={store}>
-    <Game />
+    <GameContainer />
   </Provider>
 );
 
