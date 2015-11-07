@@ -10,16 +10,12 @@ import {
 
 const canBlock = returnTrue;
 const canCollect = returnTrue;
+const canDestroy = returnTrue;
 const canKill = returnTrue;
 const canWin = returnTrue;
 
 const blocksUnless = (hasAbility) => ({
   canBlock: not(hasAbility),
-  canDie: hasAbility
-});
-
-const killsUnless = (hasAbility) => ({
-  canKill: not(hasAbility),
   canDie: hasAbility
 });
 
@@ -44,16 +40,16 @@ export const entities = {
   BE: { type: 'chicken',  ...blocksUnless(hasHammer) },
   BF: { type: 'fishA',    ...blocksUnless(hasSpeedboat) },
   BG: { type: 'fishB',    ...blocksUnless(hasSpeedboat) },
-  BH: { type: 'turtle',   ...blocksUnless(hasHammer) },
+  BH: { type: 'turtle',   ...blocksUnless(hasBoots) },
   BI: { type: 'camel',    ...blocksUnless(hasHammer) },
   BJ: { type: 'cloud',    canBlock },
   BK: { type: 'creepsun', ...blocksUnless(hasHammer) },
   // Killers without items
   DA: { type: 'sun',     canKill: not(hasSunglasses) },
-  DB: { type: 'corn',    ...blocksUnless(hasSilverware) },
+  DB: { type: 'corn',    canBlock: not(hasSilverware), canDestroy: hasSilverware },
   DC: { type: 'wave',    canBlock: not(hasSpeedboat) },
-  DD: { type: 'fire',    ...killsUnless(hasBoots) },
-  DE: { type: 'snowman', ...killsUnless(hasHammer) },
+  DD: { type: 'fire',    canKill: not(hasBoots) },
+  DE: { type: 'snowman', canKill: not(hasHammer), canDie: hasHammer },
   // Killers always
   KA: { type: 'bee',       canKill },
   KB: { type: 'gator',     canKill },
