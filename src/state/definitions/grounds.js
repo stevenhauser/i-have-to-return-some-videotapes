@@ -7,5 +7,6 @@ export const grounds = {
   GF: { type: 'road' },
   GG: { type: 'sidewalk' },
   GH: { type: 'sky' },
-  GI: { type: 'roadline' }
+  GI: { type: 'roadline' },
+  GJ: { type: 'doorway' },
 };

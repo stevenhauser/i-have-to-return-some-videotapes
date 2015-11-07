@@ -8,6 +8,9 @@
   &--tape::before       { content: "📼"; }
   &--door::before       { content: "🚪"; }
   &--person::before     { content: "🏃"; }
+  &--chopper::before    { content: "🚁"; }
+  &--bike::before       { content: "🚴"; }
+  &--dancer::before     { content: "💃"; }
   &--invisible::before  { content: "  "; }
   &--ghost::before      { content: "👻"; }
   &--sunglasses::before { content: "👓"; }

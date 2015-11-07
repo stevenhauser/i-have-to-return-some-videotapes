@@ -17,6 +17,7 @@ export default createPureComponent({
   displayName: 'Player',
 
   propTypes: {
+    type: PropTypes.string.isRequired,
     col: PropTypes.number.isRequired,
     row: PropTypes.number.isRequired,
     direction: PropTypes.string.isRequired,
@@ -33,12 +34,12 @@ export default createPureComponent({
   },
 
   render() {
-    const { col, row, direction } = this.props;
+    const { col, row, direction, type } = this.props;
     const attrs = {
       row,
       col,
+      type,
       block: 'entity',
-      type: 'person',
       className: classNames({
         'flipped--x': direction === 'right'
       })
