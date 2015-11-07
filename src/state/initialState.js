@@ -14,7 +14,7 @@ export const initialState = Immutable.fromJS({
     col: 22,
     direction: 'left'
   },
-  tapes: [],
+  numTapes: 0,
   grounds: parseGrounds(level1.grounds),
   entities: parseEntities(level1.entities),
   powerups: [],
