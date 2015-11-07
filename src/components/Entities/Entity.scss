@@ -8,6 +8,8 @@
   &--tape::before       { content: "📼"; }
   &--door::before       { content: "🚪"; }
   &--person::before     { content: "🏃"; }
+  &--invisible::before  { content: "  "; }
+  &--ghost::before      { content: "👻"; }
   &--sunglasses::before { content: "👓"; }
   &--silverware::before { content: "🍴"; }
   &--speedboat::before  { content: "🚤"; }

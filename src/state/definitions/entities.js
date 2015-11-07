@@ -29,6 +29,7 @@ export const entities = {
   SB: { type: 'door', canWin },
   SC: { type: 'person' },
   SD: { type: 'invisible', canBlock },
+  SE: { type: 'ghost' },
   // Powerups
   PA: { type: 'sunglasses', canCollect },
   PB: { type: 'silverware', canCollect },
