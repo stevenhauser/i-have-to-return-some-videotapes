@@ -11,11 +11,7 @@ function mapStateToProps(state) {
   return {
     time: state.get('time'),
     numTapesCollected: state.get('numTapes'),
-    numTapesTotal: (
-      state.get('numTapes') +
-      // TODO: `memoize` or something
-      (state.get('entities').toList().countBy((e) => e.get('type')).get('tape') || 0)
-    ),
+    numTapesTotal: state.get('numTapesTotal'),
     powerups: immutableToJs(state.get('powerups'))
   };
 }
