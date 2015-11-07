@@ -12,7 +12,7 @@ const canBlock = returnTrue;
 const canCollect = returnTrue;
 const canDestroy = returnTrue;
 const canKill = returnTrue;
-const canWin = returnTrue;
+const canWin = (s) => s.get('numTapes') === s.get('numTapesTotal');
 
 const blocksUnless = (hasAbility) => ({
   canBlock: not(hasAbility),
