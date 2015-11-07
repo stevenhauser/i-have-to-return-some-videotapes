@@ -14,6 +14,7 @@ const buildAbility = (prop) => (state, entity) => {
 export const canBlock = buildAbility('canBlock');
 export const canCollect = buildAbility('canCollect');
 export const canDie = buildAbility('canDie');
+export const canDestroy = buildAbility('canDestroy');
 export const canKill = buildAbility('canKill');
 
 const hasPowerup = curry((powerup, state, entity) => {
