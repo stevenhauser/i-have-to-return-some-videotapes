@@ -75,7 +75,7 @@ export function reduce(state, { direction }) {
   const removeEntity   = (s) => s.deleteIn([eKeypath, id]);
   const incrementTapes = (s) => s.update('numTapes', (num) => num + 1);
   const addPowerup     = (s) => s.update('powerups', (ps) => ps.push(type));
-  const reset          = (s) => resetState();
+  const die            = (s) => resetState().set('deaths', s.get('deaths') + 1);
   const ghostify       = (s) => s.setIn([eKeypath, id, 'type'], 'ghost');
   const collect        = (s) => (type === 'tape') ? incrementTapes(s) : addPowerup(s);
 
@@ -91,7 +91,7 @@ export function reduce(state, { direction }) {
     whenEntity(canCollect, flow(removeEntity, collect)),
     whenEntity(canDie, ghostify),
     whenEntity(canBlock, moveBack),
-    whenEntity(canKill, reset)
+    whenEntity(canKill, die)
   )(state);
 
 };
