@@ -7,10 +7,7 @@
   justify-content: flex-start;
   align-items: center;
   padding: $cellSize;
-  font: $cellSize/1 monospace;
-  text-transform: uppercase;
-  color: #fff;
-  background: #555;
+  background: $uiColor;
 
   &__itemGroup {
     display: flex;
