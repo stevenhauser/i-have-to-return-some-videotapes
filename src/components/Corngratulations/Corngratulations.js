@@ -18,6 +18,7 @@ export default createPureComponent({
         <p className="corngratulations_message">
           It was…a laugh riot.
         </p>
+        <audio src="/assets/win-music.mp3" autoPlay />
       </div>
     );
   }
