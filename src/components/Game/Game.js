@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { createPureComponent } from 'utils/createPureComponent';
 
 import World from 'components/World/World';
+import HudContainer from 'components/Hud/HudContainer';
 
 export default createPureComponent({
 
@@ -13,6 +14,7 @@ export default createPureComponent({
     return (
       <div className="game">
         <World />
+        <HudContainer />
       </div>
     );
   }
