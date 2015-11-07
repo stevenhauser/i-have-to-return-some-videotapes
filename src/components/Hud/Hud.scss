@@ -6,7 +6,8 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: $cellSize;
+  padding: 0 $cellSize;
+  height: $hudHeight;
   background: $uiColor;
 
   &__itemGroup {

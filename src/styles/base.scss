@@ -12,6 +12,7 @@ body {
   font: $cellSize/1 monospace;
   text-transform: uppercase;
   color: #fff;
+  background-color: darken($uiColor, 10%);
 }
 
 html, body,

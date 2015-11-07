@@ -1,0 +1,16 @@
+@import "~styles/vars";
+
+.game {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin: 50px auto;
+  padding-bottom: $hudHeight;
+
+  .hud {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
