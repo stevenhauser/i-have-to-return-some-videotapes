@@ -1,0 +1,48 @@
+@import "~styles/vars";
+
+.hud {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: $cellSize;
+  font: $cellSize/1 monospace;
+  text-transform: uppercase;
+  color: #fff;
+  background: #555;
+
+  &__itemGroup {
+    display: flex;
+    flex: 1;
+
+    &:not(:last-of-type) { margin-right: 1em; }
+  }
+
+  &__item {
+    &:not(:last-of-type) { margin-right: 1em; }
+
+    &::before { margin-right: 0.5em; }
+
+    &--time::before  { content: "⏳"; }
+    &--tapes::before { content: "📼"; }
+  }
+
+  &__label {
+    display: inline-block;
+    margin-right: 0.5em;
+
+    &::after { content: ":"; }
+  }
+
+  &__content {
+    display: inline-block;
+  }
+
+  &__powerup {
+    display: inline-block;
+
+    &:not(#{&}--collected) { opacity: 0.2; }
+  }
+
+}
