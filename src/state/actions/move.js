@@ -5,6 +5,7 @@ import flow from 'lodash/function/flow';
 import clamp from 'utils/clamp';
 
 import player from 'state/models/player';
+import grounds from 'state/models/grounds';
 import { coordsToId } from 'state/utils/coordsToId';
 import resetState from 'state/utils/resetState';
 
@@ -29,19 +30,11 @@ const yOffsets = Object.freeze({
 
 export const type = 'MOVE';
 
-// TODO: `memoize`
-const terminalCell = curry((method, prop, collection) => {
-  return collection[method]((item) => item.get(prop)).get(prop);
-});
-const minCol = terminalCell('minBy', 'col');
-const maxCol = terminalCell('maxBy', 'col');
-const minRow = terminalCell('minBy', 'row');
-const maxRow = terminalCell('maxBy', 'row');
-
-const clampToWorld = curry((grounds, col, row) => {
+const { minCol, maxCol, minRow, maxRow } = grounds;
+const clampToWorld = curry((state, col, row) => {
   return [
-    clamp(minCol(grounds), maxCol(grounds), col),
-    clamp(minRow(grounds), maxRow(grounds), row)
+    clamp(minCol(state), maxCol(state), col),
+    clamp(minRow(state), maxRow(state), row)
   ];
 });
 
@@ -57,7 +50,7 @@ export function reduce(state, { direction }) {
   const col = player.getCol(state);
 
   const [newCol, newRow] = clampToWorld(
-    state.get('grounds'),
+    state,
     col + xOffset,
     row + yOffset
   );
