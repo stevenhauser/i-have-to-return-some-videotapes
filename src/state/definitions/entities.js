@@ -61,3 +61,11 @@ export const entities = {
   KH: { type: 'police',    canKill },
   KI: { type: 'ambulance', canKill },
 };
+
+export const powerupTypes = [
+  entities.PA.type,
+  entities.PB.type,
+  entities.PC.type,
+  entities.PD.type,
+  entities.PE.type
+];
