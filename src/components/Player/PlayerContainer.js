@@ -15,6 +15,7 @@ const groundToType = Object.freeze({
   doorway: 'dancer',
   road: 'bike',
   roadline: 'bike',
+  sidewalk: 'personWalk',
   sky: 'chopper',
   water: 'speedboat',
 });
