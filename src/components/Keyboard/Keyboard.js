@@ -20,6 +20,8 @@ const eventToProp = Object.freeze({
 
 export default createPureComponent({
 
+  displayName: 'Keyboard',
+
   propTypes: {
     children: PropTypes.element.isRequired,
     keyFilter: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
