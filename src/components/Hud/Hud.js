@@ -43,9 +43,12 @@ export default createPureComponent({
   },
 
   componentDidUpdate(prev) {
-    const { numDeaths, numTapesCollected } = this.props;
+    const { numDeaths, numTapesCollected, health } = this.props;
     if (numDeaths > prev.numDeaths) { playSound('bummer'); }
     if (numTapesCollected > prev.numTapesCollected) { playSound('oh'); }
+    if (health < prev.health && health === 3) { playSound('hit'); }
+    if (health < prev.health && health === 2) { playSound('hit-whimper'); }
+    if (health < prev.health && health === 1) { playSound('hit-shriek'); }
   },
 
   renderPowerups(collected) {
