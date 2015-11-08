@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 import padLeft from 'lodash/string/padLeft';
+import range from 'lodash/utility/range';
 
 import classNames from 'classnames';
 
@@ -57,8 +58,20 @@ export default createPureComponent({
     ));
   },
 
+  renderHealth(total, health) {
+    return range(total).map((i) => (
+      <HudPowerup
+        key={i}
+        hasCollected={i < health}
+        type="heart"
+      />
+    ));
+  },
+
   render() {
     const {
+      health,
+      healthTotal,
       time,
       numTapesCollected,
       numTapesTotal,
@@ -79,10 +92,18 @@ export default createPureComponent({
             </div>
           </div>
         </div>
-        <div className="hud__item hud__item--powerups">
-          <div className="hud__label">Powerups</div>
-          <div className="hud__content">
-            {this.renderPowerups(powerups)}
+        <div className="hud__itemGroup">
+          <div className="hud__item hud__item--health">
+            <div className="hud__label">Life</div>
+            <div className="hud__content">
+              {this.renderHealth(healthTotal, health)}
+            </div>
+          </div>
+          <div className="hud__item hud__item--powerups">
+            <div className="hud__label">Items</div>
+            <div className="hud__content">
+              {this.renderPowerups(powerups)}
+            </div>
           </div>
         </div>
       </div>
