@@ -44,15 +44,16 @@
   &--police::before     { content: "🚓"; }
   &--ambulance::before  { content: "🚑"; }
 
-  &--storesign--v::before,
-  &--storesign--i::before,
-  &--storesign--d::before,
-  &--storesign--e::before,
-  &--storesign--o::before,
-  &--storesign--s::before,
-  &--storesign--t::before,
-  &--storesign--r::before {
+  &--storesign--v,
+  &--storesign--i,
+  &--storesign--d,
+  &--storesign--e,
+  &--storesign--o,
+  &--storesign--s,
+  &--storesign--t,
+  &--storesign--r {
     color: #f00;
+    text-align: center;
     text-shadow: 1px 1px #fff, 2px 2px #333, 3px 3px #333;
   }
 
