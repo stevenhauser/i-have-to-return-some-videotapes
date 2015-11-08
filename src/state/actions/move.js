@@ -7,7 +7,7 @@ import clamp from 'utils/clamp';
 import player from 'state/models/player';
 import grounds from 'state/models/grounds';
 import { coordsToId } from 'state/utils/coordsToId';
-import resetState from 'state/utils/resetState';
+import die from 'state/utils/die';
 
 import {
   canBlock,
@@ -68,7 +68,6 @@ export function reduce(state, { direction }) {
   const removeEntity   = (s) => s.deleteIn([eKeypath, id]);
   const incrementTapes = (s) => s.update('numTapes', (num) => num + 1);
   const addPowerup     = (s) => s.update('powerups', (ps) => ps.push(type));
-  const die            = (s) => resetState().set('deaths', s.get('deaths') + 1);
   const ghostify       = (s) => s.setIn([eKeypath, id, 'type'], 'ghost');
   const collect        = (s) => (type === 'tape') ? incrementTapes(s) : addPowerup(s);
 
