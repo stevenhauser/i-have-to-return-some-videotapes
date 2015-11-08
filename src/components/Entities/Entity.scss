@@ -44,4 +44,25 @@
   &--police::before     { content: "🚓"; }
   &--ambulance::before  { content: "🚑"; }
 
+  &--storesign--v::before,
+  &--storesign--i::before,
+  &--storesign--d::before,
+  &--storesign--e::before,
+  &--storesign--o::before,
+  &--storesign--s::before,
+  &--storesign--t::before,
+  &--storesign--r::before {
+    color: #f00;
+    text-shadow: 1px 1px #fff, 2px 2px #333, 3px 3px #333;
+  }
+
+  &--storesign--v::before { content: "V"; }
+  &--storesign--i::before { content: "I"; }
+  &--storesign--d::before { content: "D"; }
+  &--storesign--e::before { content: "E"; }
+  &--storesign--o::before { content: "O"; }
+  &--storesign--s::before { content: "S"; }
+  &--storesign--t::before { content: "T"; }
+  &--storesign--r::before { content: "R"; }
+
 }

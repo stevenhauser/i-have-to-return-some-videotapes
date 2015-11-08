@@ -44,6 +44,15 @@ export const entities = {
   BI: { type: 'camel',    ...blocksUnless(hasHammer) },
   BJ: { type: 'cloud',    canBlock },
   BK: { type: 'creepsun', ...blocksUnless(hasHammer) },
+  // The sign
+  ZL: { type: 'storesign--v', canBlock },
+  ZM: { type: 'storesign--i', canBlock },
+  ZN: { type: 'storesign--d', canBlock },
+  ZO: { type: 'storesign--e', canBlock },
+  ZP: { type: 'storesign--o', canBlock },
+  ZQ: { type: 'storesign--s', canBlock },
+  ZR: { type: 'storesign--t', canBlock },
+  ZS: { type: 'storesign--r', canBlock },
   // Killers without items
   DA: { type: 'sun',     canKill: not(hasSunglasses) },
   DB: { type: 'corn',    canBlock: not(hasSilverware), canDestroy: hasSilverware },
