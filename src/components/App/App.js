@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { createPureComponent } from 'utils/createPureComponent';
 
 import GameContainer from 'components/Game/GameContainer';
+import Editor from 'components/Editor/Editor';
 
 export default createPureComponent({
 
@@ -17,7 +18,7 @@ export default createPureComponent({
     const node = (
       !this.props.isEditing ?
       <GameContainer /> :
-      <p>Editing</p>
+      <Editor />
     );
 
     return (
