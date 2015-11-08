@@ -1,6 +1,6 @@
 {
   "name": "i-have-to-return-some-videotapes",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Collect and return your videotapes that are scattered about the woods",
   "main": "src/index.js",
   "scripts": {
