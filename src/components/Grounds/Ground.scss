@@ -7,9 +7,14 @@
   &--water    { background-color: #68a4b7; }
   &--sand     { background-color: #efdfa7; }
   &--forest   { background-color: #536a3e; }
-  &--sidewalk { background-color: #d8d8d8; }
   &--sky      { background-color: #b8ecfe; }
   &--doorway  { background-color: #fef9b8; }
+
+  &--sidewalk {
+    background-color: #d8d8d8;
+    border: 1px solid #c6c6c6;
+    border-left-color: #e1e1e1;
+  }
 
   &--road     { background-color: #565656; }
   &--roadline {
