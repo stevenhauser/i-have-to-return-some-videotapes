@@ -1,0 +1,15 @@
+@import "~styles/vars";
+
+.navbar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: $navbarHeight;
+  background: $uiColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  border-top: 1px solid lighten($uiColor, 10%);
+}

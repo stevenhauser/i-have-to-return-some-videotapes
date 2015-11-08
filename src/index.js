@@ -9,6 +9,7 @@ import GameContainer from 'components/Game/GameContainer';
 
 import 'styles/base.scss';
 import 'styles/utils.scss';
+import 'styles/navbar.scss';
 
 const store = createStore();
 
