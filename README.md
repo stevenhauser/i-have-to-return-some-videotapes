@@ -2,7 +2,7 @@
 
 Collect and return your videotapes that are scattered about the woods. Gather powerups along the way to help you on your quest. Don't get killed. Don't run out of time.
 
-Are you ready to return some videotapes? [Why yes, yes I am.][game].
+Are you ready to return some videotapes? [Why yes, yes I am.][game]
 
 ## About
 
