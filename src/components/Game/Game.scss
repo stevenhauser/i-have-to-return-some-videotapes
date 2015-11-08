@@ -1,0 +1,26 @@
+@import "~styles/vars";
+
+.game {
+  box-sizing: content-box;
+  position: absolute;
+  top: calc(50% - #{$navbarHeight / 2});
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $camWidth;
+  height: $camHeight;
+  padding-bottom: $hudHeight;
+
+  .hud {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  // Scale down on smaller screens in the simplest way possible.
+  // TODO: Make the game much more responsive.
+  $totalHeight: $camHeight + $hudHeight + $navbarHeight + 10px;
+  @media screen and (max-height: $totalHeight) {
+    & { transform: translate(-50%, -50%) scale(0.8); }
+  }
+}

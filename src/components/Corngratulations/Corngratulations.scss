@@ -1,0 +1,15 @@
+@import "~styles/vars";
+
+.corngratulations {
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3rem;
+  z-index: 10;
+  text-align: center;
+  background: $uiColor;
+  border: 15px solid darken($uiColor, 15%);
+
+}

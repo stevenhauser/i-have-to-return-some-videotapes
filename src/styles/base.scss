@@ -1,3 +1,5 @@
+@import "~styles/vars";
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -7,7 +9,10 @@ html {
 }
 
 body {
-  font: 1.4em / 1 sans-serif;
+  font: $cellSize/1 monospace;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: darken($uiColor, 10%);
 }
 
 html, body,

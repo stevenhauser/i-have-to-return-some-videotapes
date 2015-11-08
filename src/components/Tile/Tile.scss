@@ -1,0 +1,7 @@
+@import '~styles/vars';
+
+.tile {
+  width: $cellSize;
+  height: $cellSize;
+  position: absolute;
+}
