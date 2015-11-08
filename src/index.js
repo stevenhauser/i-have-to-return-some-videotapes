@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import createStore from 'utils/createStore';
 
-import GameContainer from 'components/Game/GameContainer';
+import AppContainer from 'components/App/AppContainer';
 
 import 'styles/base.scss';
 import 'styles/utils.scss';
@@ -15,8 +15,8 @@ const store = createStore();
 
 const app = (
   <Provider store={store}>
-    <GameContainer />
+    <AppContainer />
   </Provider>
 );
 
-ReactDOM.render(app, document.getElementById('game'));
+ReactDOM.render(app, document.getElementById('app'));
