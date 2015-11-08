@@ -22,6 +22,7 @@ export default createPureComponent({
     numDeaths: PropTypes.number.isRequired,
     numTapesCollected: PropTypes.number.isRequired,
     numTapesTotal: PropTypes.number.isRequired,
+    onTick: PropTypes.func.isRequired,
     powerups: PropTypes.arrayOf(PropTypes.string),
     time: PropTypes.number.isRequired,
   },
@@ -30,6 +31,14 @@ export default createPureComponent({
     const min = Math.floor(time / 60);
     const sec = padLeft(time % 60, 2, '0');
     return `${min}:${sec}`;
+  },
+
+  componentDidMount() {
+    this.interval = setInterval(this.props.onTick, 1000);
+  },
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   },
 
   componentDidUpdate(prev) {

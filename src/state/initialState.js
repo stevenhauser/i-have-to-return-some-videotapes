@@ -22,7 +22,7 @@ export const initialState = Immutable.fromJS({
   numTapesTotal,
   numTapes: 0,
   deaths: 0,
-  time: 120,
+  time: 90,
   powerups: [],
   hasWon: false,
   player: {

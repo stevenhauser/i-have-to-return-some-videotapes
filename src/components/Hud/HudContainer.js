@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import immutableToJs from 'utils/immutableToJs';
 
+import { toUpdateTime } from 'state/actions/updateTime';
+
 import Hud from 'components/Hud/Hud';
 
 function mapStateToProps(state) {
@@ -18,7 +20,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    onTick() {
+      dispatch(toUpdateTime());
+    }
+  };
 };
 
 export default connect(
