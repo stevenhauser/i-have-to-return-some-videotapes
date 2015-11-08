@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 
 import { createPureComponent } from 'utils/createPureComponent';
 
-import World from 'components/World/World';
+import Camera from 'components/Camera/Camera';
 import Corngratulations from 'components/Corngratulations/Corngratulations';
 import HudContainer from 'components/Hud/HudContainer';
+import WorldContainer from 'components/World/WorldContainer';
+
+import 'components/Game/Game.scss';
 
 export default createPureComponent({
 
@@ -24,7 +27,9 @@ export default createPureComponent({
 
     return (
       <div className="game">
-        <World />
+        <Camera>
+          <WorldContainer />
+        </Camera>
         <HudContainer />
         {corngrats}
       </div>

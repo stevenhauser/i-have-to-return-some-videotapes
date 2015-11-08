@@ -3,8 +3,8 @@
 .game {
   box-sizing: content-box;
   position: relative;
-  width: 800px;
-  height: 600px;
+  width: $camWidth;
+  height: $camHeight;
   margin: 50px auto;
   padding-bottom: $hudHeight;
 

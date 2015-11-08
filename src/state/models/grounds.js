@@ -17,9 +17,19 @@ const terminalCell = curry((method, prop, state) => {
   return val;
 });
 
+const minCol = terminalCell('minBy', 'col');
+const maxCol = terminalCell('maxBy', 'col');
+const minRow = terminalCell('minBy', 'row');
+const maxRow = terminalCell('maxBy', 'row');
+
+const width  = (s) => (maxCol(s) - minCol(s)) + 1
+const height = (s) => (maxRow(s) - minRow(s)) + 1
+
 export default Object.freeze({
-  minCol: terminalCell('minBy', 'col'),
-  maxCol: terminalCell('maxBy', 'col'),
-  minRow: terminalCell('minBy', 'row'),
-  maxRow: terminalCell('maxBy', 'row'),
+  minCol,
+  maxCol,
+  minRow,
+  maxRow,
+  width,
+  height
 });
