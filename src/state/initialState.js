@@ -16,11 +16,17 @@ const numTapesTotal = values(entities)
   .filter(t => t === 'tape')
   .length;
 
+
+const editor = {
+  activeEntity: null,
+  activeGround: null,
+};
+
 export const initialState = Immutable.fromJS({
   entities,
   grounds,
   numTapesTotal,
-  isEditing: false,
+  editor: null,
   numTapes: 0,
   deaths: 0,
   time: 90,

@@ -9,7 +9,7 @@ import App from 'components/App/App';
 
 function mapStateToProps(state) {
   return {
-    isEditing: state.get('isEditing')
+    isEditing: !!state.get('editor')
   };
 }
 
