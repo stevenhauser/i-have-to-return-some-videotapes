@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { createPureComponent } from 'utils/createPureComponent';
 
 import GameContainer from 'components/Game/GameContainer';
-import Editor from 'components/Editor/Editor';
+import EditorContainer from 'components/Editor/EditorContainer';
 
 export default createPureComponent({
 
@@ -18,7 +18,7 @@ export default createPureComponent({
     const node = (
       !this.props.isEditing ?
       <GameContainer /> :
-      <Editor />
+      <EditorContainer />
     );
 
     const navbar = this.props.isEditing ? null : (

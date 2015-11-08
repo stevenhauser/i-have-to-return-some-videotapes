@@ -1,10 +1,12 @@
 import { initialState } from 'state/initialState';
 
 import * as move from 'state/actions/move';
+import * as pickTile from 'state/actions/pickTile';
 import * as updateTime from 'state/actions/updateTime';
 
 const reducers = {
   [move.type]: move.reduce,
+  [pickTile.type]: pickTile.reduce,
   [updateTime.type]: updateTime.reduce,
 };
 

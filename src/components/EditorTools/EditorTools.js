@@ -14,7 +14,13 @@ export default createPureComponent({
 
   displayName: 'EditorTools',
 
-  renderGroup(groupName, group) {
+  propTypes: {
+    activeEntity: PropTypes.string,
+    activeGround: PropTypes.string,
+    onPickTile: PropTypes.func.isRequired,
+  },
+
+  renderGroup(groupName, active, group) {
     return Object.keys(group).map((shortName) => {
       const tile = group[shortName];
       const { type } = tile;
@@ -22,6 +28,9 @@ export default createPureComponent({
         <EditorTool
           key={type}
           block={groupName}
+          isActive={shortName === active}
+          onChoose={this.props.onPickTile}
+          shortName={shortName}
           type={type}
         />
       );
@@ -29,20 +38,22 @@ export default createPureComponent({
   },
 
   render() {
+    const { activeEntity, activeGround } = this.props;
+
     return (
       <div className="editorTools">
 
         <div className="editorTools__group">
           <h3 className="editorTools__heading">Groups</h3>
           <div className="editorTools__palette">
-            {this.renderGroup('ground', grounds)}
+            {this.renderGroup('ground', activeGround, grounds)}
           </div>
         </div>
 
         <div className="editorTools__group">
           <h3 className="editorTools__heading">Entities</h3>
           <div className="editorTools__palette">
-            {this.renderGroup('entity', entities)}
+            {this.renderGroup('entity', activeEntity, entities)}
           </div>
         </div>
 

@@ -10,10 +10,16 @@ export default createPureComponent({
 
   displayName: 'Editor',
 
+  propTypes: {
+    activeEntity: PropTypes.string,
+    activeGround: PropTypes.string,
+    onPickTile: PropTypes.func.isRequired,
+  },
+
   render() {
     return (
       <div className="editor">
-        <EditorTools />
+        <EditorTools {...this.props} />
         <World row={0} col={0} />
       </div>
     );
