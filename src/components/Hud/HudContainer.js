@@ -5,12 +5,16 @@ import { connect } from 'react-redux';
 
 import immutableToJs from 'utils/immutableToJs';
 
+import { initialState } from 'state/initialState';
+
 import { toUpdateTime } from 'state/actions/updateTime';
 
 import Hud from 'components/Hud/Hud';
 
 function mapStateToProps(state) {
   return {
+    health: state.get('health'),
+    healthTotal: initialState.get('health'),
     numDeaths: state.get('deaths'),
     numTapesCollected: state.get('numTapes'),
     numTapesTotal: state.get('numTapesTotal'),

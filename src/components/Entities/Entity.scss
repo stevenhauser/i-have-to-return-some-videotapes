@@ -5,54 +5,79 @@
   font: #{$cellSize}/#{$cellSize} "Apple Color Emoji";
   z-index: 1;
 
-  &--tape::before       { content: "📼"; }
-  &--door::before       { content: "🚪"; }
-  &--person::before     { content: "🏃"; }
-  &--chopper::before    { content: "🚁"; }
-  &--bike::before       { content: "🚴"; }
-  &--dancer::before     { content: "💃"; }
-  &--invisible::before  { content: "  "; }
-  &--ghost::before      { content: "👻"; }
-  &--sunglasses::before { content: "👓"; }
-  &--silverware::before { content: "🍴"; }
-  &--speedboat::before  { content: "🚤"; }
-  &--boots::before      { content: "👢"; }
-  &--hammer::before     { content: "🔨"; }
-  &--treeA::before      { content: "🌲"; }
-  &--treeB::before      { content: "🎄"; }
-  &--building::before   { content: "🏢"; }
-  &--rabbit::before     { content: "🐇"; }
-  &--chicken::before    { content: "🐣"; }
-  &--fishA::before      { content: "🐟"; }
-  &--fishB::before      { content: "🐠"; }
-  &--turtle::before     { content: "🐢"; }
-  &--camel::before      { content: "🐫"; }
-  &--cloud::before      { content: "☁"; }
-  &--creepsun::before   { content: "🌞"; }
-  &--sun::before        { content: "☀"; }
-  &--corn::before       { content: "🌽"; }
-  &--wave::before       { content: "🌊"; }
-  &--fire::before       { content: "🔥"; }
-  &--snowman::before    { content: "⛄️"; }
+  &--ambulance::before  { content: "🚑"; }
+  &--banana::before     { content: "🍌"; }
   &--bee::before        { content: "🐝"; }
-  &--gator::before      { content: "🐊"; }
-  &--snake::before      { content: "🐍"; }
+  &--bike::before       { content: "🚴"; }
+  &--boots::before      { content: "👢"; }
+  &--building::before   { content: "🏢"; }
+  &--cactus::before     { content: "🌵"; }
+  &--camel::before      { content: "🐫"; }
   &--carA::before       { content: "🚗"; }
   &--carB::before       { content: "🚙"; }
-  &--taxi::before       { content: "🚕"; }
+  &--chicken::before    { content: "🐣"; }
+  &--chopper::before    { content: "🚁"; }
+  &--cloud::before      { content: "☁"; }
+  &--corn::before       { content: "🌽"; }
+  &--creepsun::before   { content: "🌞"; }
+  &--dancer::before     { content: "💃"; }
+  &--door::before       { content: "🚪"; }
+  &--elephant::before   { content: "🐘"; }
+  &--fire::before       { content: "🔥"; }
   &--firetruck::before  { content: "🚒"; }
+  &--fishA::before      { content: "🐟"; }
+  &--fishB::before      { content: "🐠"; }
+  &--flowerA::before    { content: "🌻"; }
+  &--flowerB::before    { content: "🌹"; }
+  &--flowerC::before    { content: "🌷"; }
+  &--gator::before      { content: "🐊"; }
+  &--ghost::before      { content: "👻"; }
+  &--hammer::before     { content: "🔨"; }
+  &--heart::before      { content: "❤️"; }
+  &--houseA::before     { content: "🏠"; }
+  &--houseB::before     { content: "🏡"; }
+  &--invisible::before  { content: "  "; }
+  &--leavesA::before    { content: "🍃"; }
+  &--leavesB::before    { content: "🍂"; }
+  &--leavesC::before    { content: "🌿"; }
+  &--mart::before       { content: "🏪"; }
+  &--monkey::before     { content: "🐒"; }
+  &--musichall::before  { content: "🏫"; }
+  &--palm::before       { content: "🌴"; }
+  &--person::before     { content: "🏃"; }
+  &--personWalk::before { content: "🚶"; }
   &--police::before     { content: "🚓"; }
-  &--ambulance::before  { content: "🚑"; }
+  &--rabbit::before     { content: "🐇"; }
+  &--shell::before      { content: "🐚"; }
+  &--shit::before       { content: "💩"; }
+  &--silverware::before { content: "🍴"; }
+  &--snake::before      { content: "🐍"; }
+  &--snowflake::before  { content: "❄"; }
+  &--snowman::before    { content: "⛄️"; }
+  &--speedboat::before  { content: "🚤"; }
+  &--stonehenge::before { content: "🗿"; }
+  &--sun::before        { content: "☀"; }
+  &--sunglasses::before { content: "👓"; }
+  &--tape::before       { content: "📼"; }
+  &--taxi::before       { content: "🚕"; }
+  &--tornado::before    { content: "💨"; }
+  &--treeA::before      { content: "🌲"; }
+  &--treeB::before      { content: "🎄"; }
+  &--treeC::before      { content: "🌳"; }
+  &--turtle::before     { content: "🐢"; }
+  &--wave::before       { content: "🌊"; }
+  &--willows::before    { content: "🌾"; }
 
-  &--storesign--v::before,
-  &--storesign--i::before,
-  &--storesign--d::before,
-  &--storesign--e::before,
-  &--storesign--o::before,
-  &--storesign--s::before,
-  &--storesign--t::before,
-  &--storesign--r::before {
+  &--storesign--v,
+  &--storesign--i,
+  &--storesign--d,
+  &--storesign--e,
+  &--storesign--o,
+  &--storesign--s,
+  &--storesign--t,
+  &--storesign--r {
     color: #f00;
+    text-align: center;
     text-shadow: 1px 1px #fff, 2px 2px #333, 3px 3px #333;
   }
 

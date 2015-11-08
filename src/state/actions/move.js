@@ -70,6 +70,8 @@ export function reduce(state, { direction }) {
   const addPowerup     = (s) => s.update('powerups', (ps) => ps.push(type));
   const ghostify       = (s) => s.setIn([eKeypath, id, 'type'], 'ghost');
   const collect        = (s) => (type === 'tape') ? incrementTapes(s) : addPowerup(s);
+  const hurt           = (s) => s.update('health', (h) => h - 1);
+  const dieIfUnhealthy = (s) => (s.get('health') <= 0) ? die(s) : s;
 
   const whenEntity = curry((condition, update, s) => {
     return (esOccupado && condition(s, entity)) ? update(s) : s;
@@ -83,7 +85,8 @@ export function reduce(state, { direction }) {
     whenEntity(canCollect, flow(removeEntity, collect)),
     whenEntity(canDie, ghostify),
     whenEntity(canBlock, moveBack),
-    whenEntity(canKill, die)
+    whenEntity(canKill, hurt),
+    dieIfUnhealthy
   )(state);
 
 };

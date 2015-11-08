@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 import padLeft from 'lodash/string/padLeft';
+import range from 'lodash/utility/range';
 
 import classNames from 'classnames';
 
@@ -42,9 +43,12 @@ export default createPureComponent({
   },
 
   componentDidUpdate(prev) {
-    const { numDeaths, numTapesCollected } = this.props;
+    const { numDeaths, numTapesCollected, health } = this.props;
     if (numDeaths > prev.numDeaths) { playSound('bummer'); }
     if (numTapesCollected > prev.numTapesCollected) { playSound('oh'); }
+    if (health < prev.health && health === 3) { playSound('hit'); }
+    if (health < prev.health && health === 2) { playSound('hit-whimper'); }
+    if (health < prev.health && health === 1) { playSound('hit-shriek'); }
   },
 
   renderPowerups(collected) {
@@ -57,8 +61,20 @@ export default createPureComponent({
     ));
   },
 
+  renderHealth(total, health) {
+    return range(total).map((i) => (
+      <HudPowerup
+        key={i}
+        hasCollected={i < health}
+        type="heart"
+      />
+    ));
+  },
+
   render() {
     const {
+      health,
+      healthTotal,
       time,
       numTapesCollected,
       numTapesTotal,
@@ -79,10 +95,18 @@ export default createPureComponent({
             </div>
           </div>
         </div>
-        <div className="hud__item hud__item--powerups">
-          <div className="hud__label">Powerups</div>
-          <div className="hud__content">
-            {this.renderPowerups(powerups)}
+        <div className="hud__itemGroup">
+          <div className="hud__item hud__item--health">
+            <div className="hud__label">Life</div>
+            <div className="hud__content">
+              {this.renderHealth(healthTotal, health)}
+            </div>
+          </div>
+          <div className="hud__item hud__item--powerups">
+            <div className="hud__label">Items</div>
+            <div className="hud__content">
+              {this.renderPowerups(powerups)}
+            </div>
           </div>
         </div>
       </div>
