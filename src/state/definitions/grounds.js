@@ -9,4 +9,5 @@ export const grounds = {
   GH: { type: 'sky' },
   GI: { type: 'roadline' },
   GJ: { type: 'doorway' },
+  GK: { type: 'snow' },
 };
