@@ -9,8 +9,16 @@ import {
 
 import * as level1 from 'state/levels/level-01';
 
-const entities = parseEntities(level1.entities);
-const grounds  = parseGrounds(level1.grounds);
+function dataFor(key) {
+  return (
+    JSON.parse(localStorage.getItem(key)) ||
+    level1[key]
+  );
+}
+
+const entities = parseEntities(dataFor('entities'));
+const grounds  = parseGrounds(dataFor('grounds'));
+
 const numTapesTotal = values(entities)
   .map(e => e.type)
   .filter(t => t === 'tape')
