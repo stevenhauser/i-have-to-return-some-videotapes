@@ -5,6 +5,7 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  user-select: none;
 
   .editorTools {
     flex: none;
