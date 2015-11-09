@@ -1,0 +1,8 @@
+.editorTiler {
+  position: relative;
+  z-index: 20;
+
+  .tiler {
+    &:hover { background: rgba(#000, 0.2); }
+  }
+}
