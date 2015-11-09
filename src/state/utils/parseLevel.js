@@ -15,9 +15,11 @@ const createTile = curry((defs, row, col, def) => {
   );
 });
 
+export const splitRow = (row) => row.split(splitter);
+
 const parseLevelGrid = curry((defs, data) => {
   return data
-    .map((row) => row.split(splitter))
+    .map(splitRow)
     .reduce((obj, row, rowIdx) => {
       const createItem = rearg(createTile(defs, rowIdx), 1, 0);
       const items = row

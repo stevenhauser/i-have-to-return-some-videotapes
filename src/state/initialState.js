@@ -4,7 +4,8 @@ import values from 'lodash/object/values';
 
 import {
   parseGrounds,
-  parseEntities
+  parseEntities,
+  splitRow
 } from 'state/utils/parseLevel';
 
 import * as level1 from 'state/levels/level-01';
@@ -16,8 +17,11 @@ function dataFor(key) {
   );
 }
 
-const entities = parseEntities(dataFor('entities'));
-const grounds  = parseGrounds(dataFor('grounds'));
+const entitiesData = dataFor('entities');
+const groundsData = dataFor('grounds');
+
+const entities = parseEntities(entitiesData);
+const grounds  = parseGrounds(groundsData);
 
 const numTapesTotal = values(entities)
   .map(e => e.type)
@@ -42,8 +46,8 @@ export const initialState = Immutable.fromJS({
   health: 4,
   hasWon: false,
   player: {
-    row: 49,
-    col: 22,
+    row: groundsData.length - 1,
+    col: Math.floor(splitRow(groundsData[0]).length / 2),
     direction: 'left'
   }
 });
