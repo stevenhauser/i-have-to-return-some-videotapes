@@ -1,0 +1,19 @@
+.editor {
+
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .editorTools {
+    flex: none;
+    margin-bottom: 1rem;
+  }
+
+  .world {
+    flex: 1;
+    overflow: auto;
+  }
+
+}

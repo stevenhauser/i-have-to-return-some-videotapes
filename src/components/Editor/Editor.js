@@ -7,6 +7,8 @@ import World from 'components/World/World';
 import EditorTools from 'components/EditorTools/EditorTools';
 import EditorTiler from 'components/EditorTiler/EditorTiler';
 
+import 'components/Editor/Editor.scss';
+
 export default createPureComponent({
 
   displayName: 'Editor',
