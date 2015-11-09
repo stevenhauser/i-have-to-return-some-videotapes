@@ -1,0 +1,15 @@
+@import "~styles/vars";
+
+.editorTool {
+  position: relative;
+  width: $cellSize;
+  height: $cellSize;
+  border: 1px solid #000;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(#fff, 0.2);
+
+  &--active {
+    border-color: #fff;
+  }
+}

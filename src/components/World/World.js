@@ -6,7 +6,6 @@ import { gridCoordsToStyle } from 'utils/gridCoordsToStyle';
 
 import EntitiesContainer from 'components/Entities/EntitiesContainer';
 import GroundsContainer from 'components/Grounds/GroundsContainer';
-import PlayerContainer from 'components/Player/PlayerContainer';
 
 import 'components/World/World.scss';
 
@@ -20,13 +19,13 @@ export default createPureComponent({
   },
 
   render() {
-    const { col, row } = this.props;
+    const { col, row, children } = this.props;
     const style = gridCoordsToStyle(row, col);
     return (
       <div className="world" style={style}>
         <EntitiesContainer />
         <GroundsContainer />
-        <PlayerContainer />
+        {children}
       </div>
     );
   }

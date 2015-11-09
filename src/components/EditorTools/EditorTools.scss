@@ -1,0 +1,25 @@
+@import "~styles/vars";
+
+.editorTools {
+  background: $uiColor;
+  position: relative;
+  padding: 1rem;
+
+  &__group {
+    margin-bottom: 1rem;
+  }
+
+  &__palette {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__heading {
+    font-size: 2rem;
+    font-weight: normal;
+  }
+
+  .editorTool {
+    margin: 2px;
+  }
+}

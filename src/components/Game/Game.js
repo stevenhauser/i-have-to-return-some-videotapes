@@ -6,6 +6,7 @@ import { createPureComponent } from 'utils/createPureComponent';
 import Camera from 'components/Camera/Camera';
 import Corngratulations from 'components/Corngratulations/Corngratulations';
 import HudContainer from 'components/Hud/HudContainer';
+import PlayerContainer from 'components/Player/PlayerContainer';
 import WorldContainer from 'components/World/WorldContainer';
 
 import 'components/Game/Game.scss';
@@ -28,7 +29,9 @@ export default createPureComponent({
     return (
       <div className="game">
         <Camera>
-          <WorldContainer />
+          <WorldContainer>
+            <PlayerContainer />
+          </WorldContainer>
         </Camera>
         <HudContainer />
         {corngrats}

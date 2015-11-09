@@ -28,6 +28,7 @@ export default createPureComponent({
   render() {
     const { block, col, row, type, className } = this.props;
     const attrs = {
+      ...this.props,
       style: gridCoordsToStyle(row, col),
       className: classNames(
         className,
