@@ -4,6 +4,8 @@ Collect and return your videotapes that are scattered about the woods. Gather po
 
 Are you ready to return some videotapes? [Why yes, yes I am.][game]
 
+Note that the game really only works on OSX due to the emoji font. Seems to work pretty well cross browser though, but it was tested in Chrome.
+
 ## Developing
 
 1. Ensure you have `node@^4.2.1` and `npm@^3.3.9`
