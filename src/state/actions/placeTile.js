@@ -1,3 +1,7 @@
+import { Map } from 'immutable';
+
+import { typeToState } from 'state/actions/pickTile';
+
 import { coordsToId } from 'state/utils/coordsToId';
 
 import { entities } from 'state/definitions/entities';
@@ -15,15 +19,16 @@ const typeToDefintion = Object.freeze({
 
 export const type = 'PLACE_TILE';
 
-export function reduce(state, { tileType, shortType, col, row }) {
+export function reduce(state, { tileType, col, row }) {
   const id = coordsToId(col, row);
   const tilesPath = typeToTilesPath[tileType];
+  const shortType = state.getIn(['editor', typeToState[tileType]]);
+  if (!shortType) { return state; }
   const { type } = typeToDefintion[tileType][shortType];
-  const keypath = [tilesPath, id, 'type'];
-  console.log( 'PLACE_TILE', keypath, type );
-  return state.setIn(keypath, type);
+  const keypath = [tilesPath, id];
+  return state.setIn(keypath, Map({ col, row, type }));
 };
 
-export function toPlaceTile(tileType, shortType, col, row) {
-  return { type, tileType, shortType, col, row };
+export function toPlaceTile(tileType, col, row) {
+  return { type, tileType, col, row };
 };

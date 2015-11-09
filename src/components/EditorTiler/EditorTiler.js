@@ -6,7 +6,7 @@ import range from 'lodash/utility/range';
 
 import { createPureComponent } from 'utils/createPureComponent';
 
-import Tiles from 'components/Tiles/Tiles';
+import EditorTile from 'components/EditorTile/EditorTile';
 
 import 'components/EditorTiler/EditorTiler.scss';
 
@@ -21,10 +21,11 @@ export default createPureComponent({
     maxCol: PropTypes.number.isRequired,
     minRow: PropTypes.number.isRequired,
     maxRow: PropTypes.number.isRequired,
+    onPlaceTile: PropTypes.func.isRequired,
   },
 
   computeTiles() {
-    const { minCol, maxCol, minRow, maxRow } = this.props;
+    const { minCol, maxCol, minRow, maxRow, onPlaceTile } = this.props;
     const type = 'empty';
     const cacheKey = `${minCol}-${maxCol}-${minRow}-${maxRow}`;
     const tiles = (
@@ -41,6 +42,13 @@ export default createPureComponent({
           .map((col) => range(minRow, maxRow).map((row) => ({ col, row })))
           .reduce(((arr, col) => [...arr, ...col]), [])
           .map((coords) => ({ ...coords, type  }))
+          .map((props, i) => (
+            <EditorTile
+              key={i}
+              onClick={onPlaceTile}
+              {...props}
+            />
+          ))
       ).get(cacheKey)
     );
 
@@ -50,10 +58,7 @@ export default createPureComponent({
   render() {
     return (
       <div className="editorTiler">
-        <Tiles
-          block="tiler"
-          tiles={this.computeTiles()}
-        />
+        {this.computeTiles()}
       </div>
     );
   }

@@ -1,4 +1,4 @@
-const typeToState = Object.freeze({
+export const typeToState = Object.freeze({
   entity: 'activeEntity',
   ground: 'activeGround',
 });

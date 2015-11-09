@@ -29,7 +29,7 @@ function mapDispatchToProps(dispatch) {
     onPickTile(tileType, shortType) {
       dispatch(toPickTile(...arguments));
     },
-    onPlaceTile(typeType, shortType, col, row) {
+    onPlaceTile(tileType, col, row) {
       dispatch(toPlaceTile(...arguments));
     }
   };
