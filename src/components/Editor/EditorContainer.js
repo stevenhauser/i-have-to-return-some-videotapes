@@ -18,9 +18,9 @@ function mapStateToProps(state) {
     activeEntity: state.getIn([...keypath, 'activeEntity']),
     activeGround: state.getIn([...keypath, 'activeGround']),
     minCol: grounds.minCol(state),
-    maxCol: grounds.maxCol(state),
+    maxCol: grounds.maxCol(state) + 1,
     minRow: grounds.minRow(state),
-    maxRow: grounds.maxRow(state),
+    maxRow: grounds.maxRow(state) + 1,
   };
 }
 
