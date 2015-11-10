@@ -20,6 +20,13 @@ const blocksUnless = (hasAbility) => ({
 });
 
 export const entities = {
+  // TODO: do we even need `type` here? What's it used for?
+  // Just CSS? If so, it might make sense to just drop it
+  // and use the short type only. Would be easy to reference
+  // the stylesheet.
+  // Actually after some thought, it is nice to see `type` here
+  // to update abilities. Jumping back and forth between the
+  // stylesheet and this file would be a PITA.
   '00': { type: 'empty' },
   // Special
   SA: { type: 'tape', canCollect },
@@ -74,7 +81,7 @@ export const entities = {
   ZR: { type: 'storesign--t', canBlock },
   ZS: { type: 'storesign--r', canBlock },
   // Killers without items
-  DA: { type: 'sun',     canKill: not(hasSunglasses) },
+  DA: { type: 'sun',     canBlock: not(hasSunglasses) },
   DB: { type: 'corn',    canBlock: not(hasSilverware), canDestroy: hasSilverware },
   DC: { type: 'wave',    canBlock: not(hasSpeedboat) },
   DD: { type: 'fire',    canKill: not(hasBoots), canDestroy: hasBoots },
@@ -95,6 +102,10 @@ export const entities = {
   KK: { type: 'tornado',   canKill },
 };
 
+// TODO: maybe the powerups above are defined as a separate
+// object and spread into the `entities` const above. That way
+// we could just grab the keys off the object rather than
+// manually manage this.
 export const powerupTypes = [
   entities.PA.type,
   entities.PB.type,

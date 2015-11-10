@@ -1,3 +1,4 @@
+// TODO: rework most of this file. Lots of optimization opportunities here.
 import { Map } from 'immutable';
 
 import range from 'lodash/utility/range';

@@ -55,7 +55,9 @@ export function reduce(state, { direction }) {
     row + yOffset
   );
 
+  // TODO: make this a collection
   const eKeypath = 'entities';
+  // TODO: drop this once it's a 2d array.
   const id = coordsToId(newCol, newRow);
   const entity = state.getIn([eKeypath, id]);
   const esOccupado = !!entity;
@@ -68,6 +70,8 @@ export function reduce(state, { direction }) {
   const removeEntity   = (s) => s.deleteIn([eKeypath, id]);
   const incrementTapes = (s) => s.update('numTapes', (num) => num + 1);
   const addPowerup     = (s) => s.update('powerups', (ps) => ps.push(type));
+  // TODO: don't change `type`. Add an `isDead` prop or something and
+  // use that to render the ghost.
   const ghostify       = (s) => s.setIn([eKeypath, id, 'type'], 'ghost');
   const collect        = (s) => (type === 'tape') ? incrementTapes(s) : addPowerup(s);
   const hurt           = (s) => s.update('health', (h) => h - 1);

@@ -12,7 +12,10 @@ import grounds from 'state/models/grounds';
 
 import Editor from 'components/Editor/Editor';
 
+// TODO: Probably kill off this whole file and make smaller
+// containers for different editor components.
 function mapStateToProps(state) {
+  // TODO: create and use editor model
   const keypath = ['editor'];
   return {
     activeEntity: state.getIn([...keypath, 'activeEntity']),

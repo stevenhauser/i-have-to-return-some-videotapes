@@ -10,6 +10,12 @@ const splitter = /\s+\|?\s*/;
 const createTile = curry((defs, row, col, def) => {
   return (
     (def in defs) ?
+    // TODO: Any reason to actually spread here?
+    // We should be able to just have `type` or even
+    // `shortType` here. We shouldn't need the ability
+    // functions. Those could be looked up from the
+    // definition. This probably isn't a big problem
+    // though since all the functions are referenced.
     { ...defs[def], row, col } :
     null
   );
@@ -20,6 +26,8 @@ export const splitRow = (row) => row.split(splitter);
 const parseLevelGrid = curry((defs, data) => {
   return data
     .map(splitRow)
+    // TODO: this is where it all went wrong.
+    // This should result in a 2d array.
     .reduce((obj, row, rowIdx) => {
       const createItem = rearg(createTile(defs, rowIdx), 1, 0);
       const items = row

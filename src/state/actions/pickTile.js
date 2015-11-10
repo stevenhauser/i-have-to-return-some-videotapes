@@ -6,6 +6,7 @@ export const typeToState = Object.freeze({
 export const type = 'PICK_TILE';
 
 export function reduce(state, { tileType, shortType }) {
+  // TODO: make `editor` a model
   const keypath = ['editor', typeToState[tileType]];
   return state.setIn(keypath, shortType);
 };

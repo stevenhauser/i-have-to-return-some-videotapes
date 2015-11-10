@@ -10,6 +10,9 @@ import {
 
 import * as level1 from 'state/levels/level-01';
 
+// TODO: the `localStorage` stuff doesn't belong here.
+// TODO: Would be nice to pass level in here to facilitate
+// new levels in the future.
 function dataFor(key) {
   return (
     JSON.parse(localStorage.getItem(key)) ||
@@ -23,6 +26,11 @@ const groundsData = dataFor('grounds');
 const entities = parseEntities(entitiesData);
 const grounds  = parseGrounds(groundsData);
 
+// TODO: This is really for caching purposes. Is there
+// a better way to do this? An immediate `changeLevel`
+// action which does the above parsing and then caches
+// this value and merges it into state? That seems like
+// a great idea as I type this.
 const numTapesTotal = values(entities)
   .map(e => e.type)
   .filter(t => t === 'tape')

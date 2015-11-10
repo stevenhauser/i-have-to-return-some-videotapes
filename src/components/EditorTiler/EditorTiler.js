@@ -24,6 +24,7 @@ export default createPureComponent({
     onPlaceTile: PropTypes.func.isRequired,
   },
 
+  // TODO: do something much better here. this is garbage
   computeTiles() {
     const { minCol, maxCol, minRow, maxRow, onPlaceTile } = this.props;
     const type = 'empty';

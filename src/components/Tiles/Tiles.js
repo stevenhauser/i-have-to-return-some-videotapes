@@ -33,6 +33,15 @@ export default createPureComponent({
     );
   },
 
+  // TODO: This is probably one of the biggest perf issues in the app
+  // due to sheer number of tiles. Besides trying to cut those down,
+  // probably create a `TilesRow` component rather than rendering
+  // all of the `Tile` components flat here. This way, even if there
+  // are a lot of tiles, we can leverage component purity more effectively
+  // by being able to skip entire rows of tiles instead of just one
+  // tile out of many when doing `shouldComponentUpdate`. We'd end up
+  // doing, for example, 80 `shouldComponentUpdate` comparisons instead
+  // of 80 * 50 = 4000 for level one's grounds.
   render() {
     const { tiles } = this.props;
     return (

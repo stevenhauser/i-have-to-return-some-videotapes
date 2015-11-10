@@ -13,6 +13,8 @@ import 'styles/navbar.scss';
 
 const store = createStore();
 
+// TODO: use `redux-router` here instead of `App.isEditing`.
+// Can probably drop `App` altogether after that
 const app = (
   <Provider store={store}>
     <AppContainer />

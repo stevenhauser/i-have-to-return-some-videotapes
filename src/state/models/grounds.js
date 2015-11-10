@@ -3,6 +3,8 @@ import flow from 'lodash/function/flow';
 
 const cacheMap = new WeakMap();
 
+// TODO: If `grounds` was a 2d `List` instead of a
+// `Map`, we'd just do `row.size` and `col.size` here.
 const terminalCell = curry((method, prop, state) => {
   const grounds = state.get('grounds');
   const key = `${method}-${prop}`;
