@@ -21,6 +21,7 @@ const blocksUnless = (hasAbility) => ({
 
 export const entities = {
   '00': { type: 'empty' },
+  '01': { type: 'start' },
   // Special
   SA: { type: 'tape', canCollect },
   SB: { type: 'door', canWin, canDestroy: canWin, canBlock: not(canWin) },
