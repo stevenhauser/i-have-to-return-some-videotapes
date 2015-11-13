@@ -1,11 +1,13 @@
 import { initialState } from 'state/initialState';
 
+import * as changeLevel from 'state/actions/changeLevel';
 import * as move from 'state/actions/move';
 import * as pickTile from 'state/actions/pickTile';
 import * as placeTile from 'state/actions/placeTile';
 import * as updateTime from 'state/actions/updateTime';
 
 const reducers = {
+  [changeLevel.type]: changeLevel.reduce,
   [move.type]: move.reduce,
   [pickTile.type]: pickTile.reduce,
   [placeTile.type]: placeTile.reduce,
