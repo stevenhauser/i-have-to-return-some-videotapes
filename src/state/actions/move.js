@@ -63,7 +63,7 @@ export function reduce(state, { direction }) {
   const moveBack       = (s) => player.setCoords(col, row, s);
   const orient         = (s) => player.setDirection(newDir, s);
   const win            = (s) => s.set('hasWon', true);
-  const removeEntity   = (s) => level.deleteEntityAt(col, row, s);
+  const removeEntity   = (s) => level.deleteEntityAt(newCol, newRow, s);
   const incrementTapes = (s) => s.update('numTapes', (num) => num + 1);
   const addPowerup     = (s) => s.update('powerups', (ps) => ps.push(type));
   const ghostify       = (s) => level.setEntityPropAt(col, row, 'type', 'ghost', s);
