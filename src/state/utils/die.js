@@ -1,5 +1,7 @@
 import { initialState } from 'state/initialState';
 
 export default function die(state) {
-  return initialState.set('deaths', state.get('deaths') + 1);
+  return initialState
+    .set('deaths', state.get('deaths') + 1)
+    .set('level', state.get('level'));
 };
