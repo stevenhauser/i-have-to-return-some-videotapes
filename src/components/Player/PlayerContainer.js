@@ -25,7 +25,7 @@ function mapStateToProps(state) {
   const col = player.getCol(state);
   const row = player.getRow(state);
   const direction = player.getDirection(state);
-  const groundType = level.groundAt(col, row).get('type');
+  const groundType = level.groundAt(col, row, state).get('type');
   const type = groundToType[groundType] || 'person';
   return {
     col,
