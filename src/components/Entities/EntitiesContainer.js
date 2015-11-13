@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import immutableToJs from 'utils/immutableToJs';
 
+import level from 'state/models/level';
+
 import Tiles from 'components/Tiles/Tiles';
 
 import 'components/Entities/Entity.scss';
@@ -12,7 +14,7 @@ import 'components/Entities/Entity.scss';
 function mapStateToProps(state) {
   return {
     block: 'entity',
-    tiles: immutableToJs(state.get('entities'))
+    tiles: level.getEntities(state).toArray().map(immutableToJs)
   };
 }
 

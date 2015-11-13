@@ -1,3 +1,5 @@
+import curry from 'lodash/function/curry';
+
 import {
   not,
   hasBoots,
@@ -18,6 +20,10 @@ const blocksUnless = (hasAbility) => ({
   canBlock: not(hasAbility),
   canDie: hasAbility
 });
+
+const is = curry((prop, val, entity) => entity[prop] === val);
+
+export const typeIs = is('type');
 
 export const entities = {
   '00': { type: 'empty' },

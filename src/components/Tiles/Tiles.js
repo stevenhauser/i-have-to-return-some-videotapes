@@ -1,22 +1,16 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
-import values from 'lodash/object/values';
-
 import { createPureComponent } from 'utils/createPureComponent';
 
 import Tile from 'components/Tile/Tile';
 
-export default createPureComponent({
+const TilesRow = createPureComponent({
 
-  displayName: 'Tiles',
+  displayName: 'TilesRow',
 
   propTypes: {
-    block: PropTypes.string.isRequired,
-    // TODO: This has problems with `null` values. Fix it.
-    // tiles: PropTypes.arrayOf(
-    //   PropTypes.shape(Tile.propTypes)
-    // )
+    tiles: PropTypes.array.isRequired
   },
 
   renderTile(tile) {
@@ -34,10 +28,43 @@ export default createPureComponent({
   },
 
   render() {
+    return (
+      <div className="tiles__row">
+        {this.props.tiles.map(this.renderTile)}
+      </div>
+    );
+  }
+
+});
+
+export default createPureComponent({
+
+  displayName: 'Tiles',
+
+  propTypes: {
+    block: PropTypes.string.isRequired,
+    // TODO: This has problems with `null` values. Fix it.
+    // tiles: PropTypes.arrayOf(
+    //   PropTypes.shape(Tile.propTypes)
+    // )
+  },
+
+  renderTilesRow(row, i) {
+    const { block } = this.props;
+    return (
+      <TilesRow
+        key={i}
+        block={block}
+        tiles={row}
+      />
+    );
+  },
+
+  render() {
     const { tiles } = this.props;
     return (
       <div className="tiles">
-        {values(tiles).map(this.renderTile)}
+        {tiles.map(this.renderTilesRow)}
       </div>
     );
   }
