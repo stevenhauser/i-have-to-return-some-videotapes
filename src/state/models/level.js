@@ -39,8 +39,8 @@ export default Object.assign(api, {
   setGroundPropAt: setTilePropAt(groundsKeypath),
   setEntityPropAt: setTilePropAt(entitiesKeypath),
 
-  deleteGroundPropAt: deleteTileAt(groundsKeypath),
-  deleteEntityPropAt: deleteTileAt(entitiesKeypath),
+  deleteGroundAt: deleteTileAt(groundsKeypath),
+  deleteEntityAt: deleteTileAt(entitiesKeypath),
 
   minCol: (s) => 0,
   maxCol: (s) => grounds(s).first().size - 1,
