@@ -8,7 +8,7 @@ import immutableToJs from 'utils/immutableToJs';
 import { toPickTile } from 'state/actions/pickTile';
 import { toPlaceTile } from 'state/actions/placeTile';
 
-import grounds from 'state/models/grounds';
+import level from 'state/models/level';
 
 import Editor from 'components/Editor/Editor';
 
@@ -17,10 +17,10 @@ function mapStateToProps(state) {
   return {
     activeEntity: state.getIn([...keypath, 'activeEntity']),
     activeGround: state.getIn([...keypath, 'activeGround']),
-    minCol: grounds.minCol(state),
-    maxCol: grounds.maxCol(state) + 1,
-    minRow: grounds.minRow(state),
-    maxRow: grounds.maxRow(state) + 1,
+    minCol: level.minCol(state),
+    maxCol: level.maxCol(state),
+    minRow: level.minRow(state),
+    maxRow: level.maxRow(state),
   };
 }
 
