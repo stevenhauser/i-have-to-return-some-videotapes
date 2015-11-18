@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import immutableToJs from 'utils/immutableToJs';
 
+import level from 'state/models/level';
+
 import { initialState } from 'state/initialState';
 
 import { toUpdateTime } from 'state/actions/updateTime';
@@ -17,7 +19,7 @@ function mapStateToProps(state) {
     healthTotal: initialState.get('health'),
     numDeaths: state.get('deaths'),
     numTapesCollected: state.get('numTapes'),
-    numTapesTotal: state.get('numTapesTotal'),
+    numTapesTotal: level.getNumTapesTotal(state),
     powerups: immutableToJs(state.get('powerups')),
     time: state.get('time'),
   };

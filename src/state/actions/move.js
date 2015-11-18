@@ -4,9 +4,9 @@ import flow from 'lodash/function/flow';
 
 import clamp from 'utils/clamp';
 
+import level from 'state/models/level';
 import player from 'state/models/player';
-import grounds from 'state/models/grounds';
-import { coordsToId } from 'state/utils/coordsToId';
+
 import die from 'state/utils/die';
 
 import {
@@ -30,7 +30,7 @@ const yOffsets = Object.freeze({
 
 export const type = 'MOVE';
 
-const { minCol, maxCol, minRow, maxRow } = grounds;
+const { minCol, maxCol, minRow, maxRow } = level;
 const clampToWorld = curry((state, col, row) => {
   return [
     clamp(minCol(state), maxCol(state), col),
@@ -55,9 +55,7 @@ export function reduce(state, { direction }) {
     row + yOffset
   );
 
-  const eKeypath = 'entities';
-  const id = coordsToId(newCol, newRow);
-  const entity = state.getIn([eKeypath, id]);
+  const entity = level.entityAt(newCol, newRow, state);
   const esOccupado = !!entity;
   const type = esOccupado && entity.get('type');
 
@@ -65,10 +63,10 @@ export function reduce(state, { direction }) {
   const moveBack       = (s) => player.setCoords(col, row, s);
   const orient         = (s) => player.setDirection(newDir, s);
   const win            = (s) => s.set('hasWon', true);
-  const removeEntity   = (s) => s.deleteIn([eKeypath, id]);
+  const removeEntity   = (s) => level.setEntityPropAt(newCol, newRow, 'type', 'empty', s);
   const incrementTapes = (s) => s.update('numTapes', (num) => num + 1);
   const addPowerup     = (s) => s.update('powerups', (ps) => ps.push(type));
-  const ghostify       = (s) => s.setIn([eKeypath, id, 'type'], 'ghost');
+  const ghostify       = (s) => level.setEntityPropAt(newCol, newRow, 'type', 'ghost', s);
   const collect        = (s) => (type === 'tape') ? incrementTapes(s) : addPowerup(s);
   const hurt           = (s) => s.update('health', (h) => h - 1);
   const dieIfUnhealthy = (s) => (s.get('health') <= 0) ? die(s) : s;

@@ -13,7 +13,7 @@ import {
 import clamp from 'utils/clamp'
 
 import player from 'state/models/player';
-import grounds from 'state/models/grounds';
+import level from 'state/models/level';
 
 import World from 'components/World/World';
 
@@ -44,8 +44,8 @@ function calcCoord(worldDim, camDim, playerCoord) {
 }
 
 function mapStateToProps(state) {
-  const worldWidth = grounds.width(state);
-  const worldHeight = grounds.height(state);
+  const worldWidth = level.width(state);
+  const worldHeight = level.height(state);
 
   const playerCol = player.getCol(state);
   const playerRow = player.getRow(state);

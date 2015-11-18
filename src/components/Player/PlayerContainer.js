@@ -5,9 +5,10 @@ import { connect } from 'react-redux';
 
 import immutableToJs from 'utils/immutableToJs';
 
-import { toMove } from 'state/actions/move';
 import player from 'state/models/player';
-import { coordsToId } from 'state/utils/coordsToId';
+import level from 'state/models/level';
+
+import { toMove } from 'state/actions/move';
 
 import Player from 'components/Player/Player';
 
@@ -24,8 +25,7 @@ function mapStateToProps(state) {
   const col = player.getCol(state);
   const row = player.getRow(state);
   const direction = player.getDirection(state);
-  const id = coordsToId(col, row);
-  const groundType = state.getIn(['grounds', id, 'type']);
+  const groundType = level.groundAt(col, row, state).get('type');
   const type = groundToType[groundType] || 'person';
   return {
     col,
