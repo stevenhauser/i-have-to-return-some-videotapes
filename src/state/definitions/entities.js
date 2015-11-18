@@ -1,5 +1,7 @@
 import curry from 'lodash/function/curry';
 
+import level from 'state/models/level';
+
 import {
   not,
   hasBoots,
@@ -14,7 +16,7 @@ const canBlock = returnTrue;
 const canCollect = returnTrue;
 const canDestroy = returnTrue;
 const canKill = returnTrue;
-const canWin = (s) => s.get('numTapes') >= s.get('numTapesTotal');
+const canWin = (s) => s.get('numTapes') >= level.getNumTapesTotal(s);
 
 const blocksUnless = (hasAbility) => ({
   canBlock: not(hasAbility),
