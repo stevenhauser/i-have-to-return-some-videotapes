@@ -63,10 +63,10 @@ export function reduce(state, { direction }) {
   const moveBack       = (s) => player.setCoords(col, row, s);
   const orient         = (s) => player.setDirection(newDir, s);
   const win            = (s) => s.set('hasWon', true);
-  const removeEntity   = (s) => level.deleteEntityAt(newCol, newRow, s);
+  const removeEntity   = (s) => level.setEntityPropAt(newCol, newRow, 'type', 'empty', s);
   const incrementTapes = (s) => s.update('numTapes', (num) => num + 1);
   const addPowerup     = (s) => s.update('powerups', (ps) => ps.push(type));
-  const ghostify       = (s) => level.setEntityPropAt(col, row, 'type', 'ghost', s);
+  const ghostify       = (s) => level.setEntityPropAt(newCol, newRow, 'type', 'ghost', s);
   const collect        = (s) => (type === 'tape') ? incrementTapes(s) : addPowerup(s);
   const hurt           = (s) => s.update('health', (h) => h - 1);
   const dieIfUnhealthy = (s) => (s.get('health') <= 0) ? die(s) : s;
