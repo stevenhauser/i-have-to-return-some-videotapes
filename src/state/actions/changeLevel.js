@@ -43,6 +43,7 @@ export function reduce(state, action) {
   const start = flatEntities.filter(typeIs('start'))[0];
   return flow(
     player.setCoords(start.col, start.row),
+    level.setPlayerStart([start.col, start.row]),
     level.setEntities(Immutable.fromJS(entities)),
     level.setGrounds(Immutable.fromJS(grounds)),
     level.setNumTapesTotal(numTapesTotal)
