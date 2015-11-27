@@ -16,19 +16,18 @@ export default createPureComponent({
   displayName: 'Game',
 
   propTypes: {
-    hasWon: PropTypes.bool.isRequired
+    hasWon: PropTypes.bool.isRequired,
+    numCols: PropTypes.number.isRequired,
+    numRows: PropTypes.number.isRequired,
   },
 
   render() {
-    const corngrats = (
-      this.props.hasWon ?
-      <Corngratulations /> :
-      null
-    );
+    const { hasWon, numCols, numRows } = this.props;
+    const corngrats = hasWon && (<Corngratulations />);
 
     return (
       <div className="game">
-        <Camera>
+        <Camera numCols={numCols} numRows={numRows}>
           <WorldContainer>
             <PlayerContainer />
           </WorldContainer>
