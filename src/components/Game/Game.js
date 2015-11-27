@@ -34,6 +34,12 @@ export default createPureComponent({
         </Camera>
         <HudContainer />
         {corngrats}
+        <p className="game__instructions">
+          Collect all of your videotapes and return them to the video
+          store before time runs out, gathering items to help you on your
+          quest. Just as in real life, beware harmful things like bees,
+          snakes, and pieces of shit.
+        </p>
       </div>
     );
   }
