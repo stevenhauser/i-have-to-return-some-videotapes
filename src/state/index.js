@@ -14,14 +14,14 @@ const reducers = {
   [updateTime.type]: updateTime.reduce,
 };
 
-const supports = (type) => type in reducers;
-const ignores  = (type) => (type.indexOf('@@') === 0);
+export const supports = (type) => type in reducers;
+export const ignores  = (type) => (type.indexOf('@@') === 0);
 
-export function reducer(state = initialState, action) {
+export function reduce(state = initialState, action) {
   const { type } =  action;
-  const reduce = reducers[type] || () => state;
+  const reducer = reducers[type] || () => state;
   if ( !(supports(type) || ignores(type)) ) {
     console.warn(`No reducer for ${type}.`);
   }
-  return reduce(state, action);
+  return reducer(state, action);
 };
