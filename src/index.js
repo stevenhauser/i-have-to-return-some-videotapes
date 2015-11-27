@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
 
+import { ReduxRouter } from 'redux-router';
+
+import { IndexRoute, Route } from 'react-router';
+
 import createStore from 'utils/createStore';
 
 import { toChangeLevel } from 'state/actions/changeLevel';
 
-import AppContainer from 'components/App/AppContainer';
+import App from 'components/App/App';
+import GameContainer from 'components/Game/GameContainer';
+import EditorContainer from 'components/Editor/EditorContainer';
 
 import 'styles/base.scss';
 import 'styles/utils.scss';
@@ -18,7 +24,13 @@ store.dispatch(toChangeLevel(1));
 
 const app = (
   <Provider store={store}>
-    <AppContainer />
+    <ReduxRouter>
+      <Route path="/" component={App}>
+        <IndexRoute component={GameContainer} />
+        <Route path="editor" component={EditorContainer} />
+        <Route path="*" component={GameContainer} />
+      </Route>
+    </ReduxRouter>
   </Provider>
 );
 

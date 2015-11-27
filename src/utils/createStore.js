@@ -1,12 +1,36 @@
+import { createHistory } from 'history';
+
 import {
+  compose,
   createStore as createReduxStore,
   applyMiddleware
 } from 'redux';
 
+import {
+  reduxReactRouter,
+  routerStateReducer
+} from 'redux-router';
+
 import thunk from 'redux-thunk';
 
-import { reducer } from 'state';
+import * as appReducer from 'state';
+
+import { initialState } from 'state/initialState';
+
+const routerStateSelector = (state) => state.get('router');
+
+const reducer = (state = initialState, action) => {
+  return (
+    appReducer.supports(action.type) ?
+    appReducer.reduce(state, action) :
+    // Assume any non-supported actions deal with routing for now.
+    state.set('router', routerStateReducer(routerStateSelector(state), action))
+  );
+};
 
 export default function createStore() {
-  return applyMiddleware(thunk)(createReduxStore)(reducer);
+  return compose(
+    applyMiddleware(thunk),
+    reduxReactRouter({ createHistory, routerStateSelector })
+  )(createReduxStore)(reducer);
 };
