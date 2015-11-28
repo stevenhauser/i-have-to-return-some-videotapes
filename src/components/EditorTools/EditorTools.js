@@ -44,7 +44,7 @@ export default createPureComponent({
       <div className="editorTools">
 
         <div className="editorTools__group">
-          <h3 className="editorTools__heading">Groups</h3>
+          <h3 className="editorTools__heading">Grounds</h3>
           <div className="editorTools__palette">
             {this.renderGroup('ground', activeGround, grounds)}
           </div>
