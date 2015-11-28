@@ -19,4 +19,9 @@
     overflow: auto;
   }
 
+  .entity {
+    &--invisible::before { content: "🚫"; opacity: 0.3; }
+    &--start::before     { content: "🏁"; opacity: 0.3; }
+  }
+
 }
