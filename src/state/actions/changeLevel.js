@@ -4,14 +4,14 @@ import flatten from 'lodash/array/flatten';
 import curry from 'lodash/function/curry';
 import flow from 'lodash/function/flow';
 
-import { initialState } from 'state/initialState';
-
 import { typeIs } from 'state/definitions/entities';
 
 import player from 'state/models/player';
 import level from 'state/models/level';
 
 import * as level1 from 'state/levels/level-01';
+
+import reset from 'state/utils/reset';
 
 import {
   parseGrounds,
@@ -46,8 +46,9 @@ export function reduce(state, action) {
     level.setPlayerStart([start.col, start.row]),
     level.setEntities(Immutable.fromJS(entities)),
     level.setGrounds(Immutable.fromJS(grounds)),
-    level.setNumTapesTotal(numTapesTotal)
-  )(initialState);
+    level.setNumTapesTotal(numTapesTotal),
+    reset
+  )(state);
 };
 
 export function toChangeLevel(level) {
