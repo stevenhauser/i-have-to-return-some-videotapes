@@ -8,6 +8,7 @@ import level from 'state/models/level';
 import player from 'state/models/player';
 
 import die from 'state/utils/die';
+import reset from 'state/utils/reset';
 
 import {
   canBlock,
@@ -69,7 +70,7 @@ export function reduce(state, { direction }) {
   const ghostify       = (s) => level.setEntityPropAt(newCol, newRow, 'type', 'ghost', s);
   const collect        = (s) => (type === 'tape') ? incrementTapes(s) : addPowerup(s);
   const hurt           = (s) => s.update('health', (h) => h - 1);
-  const dieIfUnhealthy = (s) => (s.get('health') <= 0) ? die(s) : s;
+  const dieIfUnhealthy = (s) => (s.get('health') <= 0) ? flow(die, reset)(s) : s;
 
   const whenEntity = curry((condition, update, s) => {
     return (esOccupado && condition(s, entity)) ? update(s) : s;
