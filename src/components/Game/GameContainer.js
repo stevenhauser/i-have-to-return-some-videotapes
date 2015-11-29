@@ -10,6 +10,8 @@ import {
 
 import immutableToJs from 'utils/immutableToJs';
 
+import { toChangeLevel } from 'state/actions/changeLevel';
+
 import Game from 'components/Game/Game';
 
 function mapStateToProps(state) {
@@ -21,7 +23,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    onWillMount() {
+      dispatch(toChangeLevel(1));
+    }
+  };
 };
 
 export default connect(

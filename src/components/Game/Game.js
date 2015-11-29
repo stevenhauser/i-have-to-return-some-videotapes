@@ -19,6 +19,11 @@ export default createPureComponent({
     hasWon: PropTypes.bool.isRequired,
     numCols: PropTypes.number.isRequired,
     numRows: PropTypes.number.isRequired,
+    onWillMount: PropTypes.func.isRequired,
+  },
+
+  componentWillMount() {
+    this.props.onWillMount();
   },
 
   render() {
