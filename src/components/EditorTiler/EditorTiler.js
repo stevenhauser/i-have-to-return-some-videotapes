@@ -38,8 +38,8 @@ export default createPureComponent({
         // This whole concept is not very performant from a
         // processing or memory standpoint, however it keeps
         // the reset of the code simple.
-        range(minCol, maxCol)
-          .map((col) => range(minRow, maxRow).map((row) => ({ col, row })))
+        range(minCol, maxCol + 1)
+          .map((col) => range(minRow, maxRow + 1).map((row) => ({ col, row })))
           .reduce(((arr, col) => [...arr, ...col]), [])
           .map((coords) => ({ ...coords, type  }))
           .map((props, i) => (
