@@ -1,40 +1,37 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
-import { createPureComponent } from 'utils/createPureComponent';
+import { Link } from 'react-router';
 
-import GameContainer from 'components/Game/GameContainer';
-import EditorContainer from 'components/Editor/EditorContainer';
+import { createPureComponent } from 'utils/createPureComponent';
 
 export default createPureComponent({
 
   displayName: 'App',
 
-  propTypes: {
-    isEditing: PropTypes.bool.isRequired
+  renderLink() {
+    const isEditing = this.props.location.pathname === '/editor';
+    const to = isEditing ? '/' : '/editor';
+    const text = isEditing ? 'Play this level' : 'Edit this level';
+    return (<Link to={to}>{text}</Link>);
   },
 
   render() {
-    const node = (
-      !this.props.isEditing ?
-      <GameContainer /> :
-      <EditorContainer />
-    );
-
-    const navbar = this.props.isEditing ? null : (
-      <nav className="navbar">
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user=stevenhauser&repo=i-have-to-return-some-videotapes&type=star"
-          className="navbar__btn"
-          frameBorder="0" scrolling="0" width="50px" height="20px"
-        ></iframe>
-      </nav>
-    );
-
     return (
       <div className="app">
-        {node}
-        {navbar}
+        {this.props.children}
+        <nav className="navbar">
+          <div className="navbar__item">
+            {this.renderLink()}
+          </div>
+          <div className="navbar__item">
+            <iframe
+              src="https://ghbtns.com/github-btn.html?user=stevenhauser&repo=i-have-to-return-some-videotapes&type=star"
+              className="navbar__btn"
+              frameBorder="0" scrolling="0" width="50px" height="20px"
+            />
+          </div>
+        </nav>
       </div>
     );
   }

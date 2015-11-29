@@ -44,14 +44,14 @@ export default createPureComponent({
       <div className="editorTools">
 
         <div className="editorTools__group">
-          <h3 className="editorTools__heading">Groups</h3>
+          <h3 className="editorTools__heading">Grounds (Click to place)</h3>
           <div className="editorTools__palette">
             {this.renderGroup('ground', activeGround, grounds)}
           </div>
         </div>
 
         <div className="editorTools__group">
-          <h3 className="editorTools__heading">Entities</h3>
+          <h3 className="editorTools__heading">Entities (Shift + Click to place)</h3>
           <div className="editorTools__palette">
             {this.renderGroup('entity', activeEntity, entities)}
           </div>

@@ -72,7 +72,7 @@ export const entities = {
   CA: { type: 'houseB',    canBlock },
   CB: { type: 'mart',      canBlock },
   CC: { type: 'musichall', canBlock },
-  CD: { type: 'stonehenge', ...blocksUnless(hasHammer) },
+  CD: { type: 'moai',      ...blocksUnless(hasHammer) },
   // The sign
   ZL: { type: 'storesign--v', canBlock },
   ZM: { type: 'storesign--i', canBlock },

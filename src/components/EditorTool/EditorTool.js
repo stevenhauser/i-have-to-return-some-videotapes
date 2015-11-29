@@ -43,6 +43,7 @@ export default createPureComponent({
           block={block}
           col={0}
           row={0}
+          title={type}
           type={type}
         />
       </div>

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
 import { createPureComponent } from 'utils/createPureComponent';
-import { gridCoordsToStyle } from 'utils/gridCoordsToStyle';
+import { gridCoordsToOffsetStyle } from 'utils/gridCoordsToStyle';
 import { playSound } from 'utils/sound';
 
 import 'components/Tile/Tile.scss';
@@ -29,7 +29,7 @@ export default createPureComponent({
     const { block, col, row, type, className } = this.props;
     const attrs = {
       ...this.props,
-      style: gridCoordsToStyle(row, col),
+      style: gridCoordsToOffsetStyle(row, col),
       className: classNames(
         className,
         'tile',

@@ -22,6 +22,11 @@ export default createPureComponent({
     maxRow: PropTypes.number.isRequired,
     onPickTile: PropTypes.func.isRequired,
     onPlaceTile: PropTypes.func.isRequired,
+    onWillMount: PropTypes.func.isRequired,
+  },
+
+  componentWillMount() {
+    this.props.onWillMount();
   },
 
   render() {

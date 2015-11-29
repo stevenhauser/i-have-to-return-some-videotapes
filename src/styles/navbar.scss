@@ -12,4 +12,21 @@
   align-items: center;
   z-index: 20;
   border-top: 1px solid lighten($uiColor, 10%);
+  font-size: 2rem;
+  line-height: 2rem;
+
+  &__item:not(:last-of-type) {
+    margin-right: 1em;
+  }
+
+  a:link,
+  a:visited,
+  a:active {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }

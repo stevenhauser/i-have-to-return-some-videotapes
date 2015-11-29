@@ -1,7 +1,9 @@
+@import "~styles/vars";
+
 .editor {
 
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - #{$navbarHeight});
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -15,6 +17,11 @@
   .world {
     flex: 1;
     overflow: auto;
+  }
+
+  .entity {
+    &--invisible::before { content: "🚫"; opacity: 0.3; }
+    &--start::before     { content: "🏁"; opacity: 0.3; }
   }
 
 }

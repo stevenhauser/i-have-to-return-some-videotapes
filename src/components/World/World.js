@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 import { createPureComponent } from 'utils/createPureComponent';
-import { gridCoordsToStyle } from 'utils/gridCoordsToStyle';
+import { gridCoordsToOffsetStyle } from 'utils/gridCoordsToStyle';
 
 import EntitiesContainer from 'components/Entities/EntitiesContainer';
 import GroundsContainer from 'components/Grounds/GroundsContainer';
@@ -20,7 +20,7 @@ export default createPureComponent({
 
   render() {
     const { col, row, children } = this.props;
-    const style = gridCoordsToStyle(row, col);
+    const style = gridCoordsToOffsetStyle(row, col);
     return (
       <div className="world" style={style}>
         <EntitiesContainer />

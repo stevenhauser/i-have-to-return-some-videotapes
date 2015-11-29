@@ -1,12 +1,11 @@
 import Immutable from 'immutable';
 
-const editor = {
-  activeEntity: null,
-  activeGround: null,
-};
-
 export const initialState = Immutable.fromJS({
-  editor: null,
+  editor: {
+    activeEntity: null,
+    activeGround: null,
+  },
+  router: null,
   // level: null,
   numTapes: 0,
   deaths: 0,
