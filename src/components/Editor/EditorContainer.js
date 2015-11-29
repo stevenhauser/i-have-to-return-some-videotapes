@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import immutableToJs from 'utils/immutableToJs';
 
+import { toChangeLevel } from 'state/actions/changeLevel';
 import { toPickTile } from 'state/actions/pickTile';
 import { toPlaceTile } from 'state/actions/placeTile';
 
@@ -31,7 +32,10 @@ function mapDispatchToProps(dispatch) {
     },
     onPlaceTile(tileType, col, row) {
       dispatch(toPlaceTile(...arguments));
-    }
+    },
+    onWillMount() {
+      dispatch(toChangeLevel(1));
+    },
   };
 };
 
