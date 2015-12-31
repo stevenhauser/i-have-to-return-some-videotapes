@@ -4,8 +4,9 @@
   "description": "Collect and return your videotapes that are scattered about the woods",
   "main": "src/index.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack -p --devtool=source-map",
-    "start": "babel-node server.js",
+    "build": "babel-node tasks build",
+    "build-static": "babel-node tasks build-static",
+    "start": "babel-node tasks serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
