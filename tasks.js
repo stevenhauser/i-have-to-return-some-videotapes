@@ -11,13 +11,16 @@ const promisify = (fn, ...args) => new Promise((resolve, reject) =>
 );
 
 const tasks = {
-  build() {
+  build(opts={}) {
+    opts.base = opts.base || '/';
+
     return tasks.templates({
-      base: '/'
+      base: opts.base
     }).then(() => {
       const config = webpackConfig({
         devtool: 'source-map',
         env: {
+          BASENAME: JSON.stringify(opts.base),
           'process.env': { 'NODE_ENV': JSON.stringify('production') }
         },
         minify: true
@@ -25,6 +28,26 @@ const tasks = {
 
       return promisify(webpack, config).then(stats => console.log(stats.toString({ timings: true })));
     })
+  },
+
+  'build-static': () => {
+    const fileDest = 'static/';
+    const hostPath = '/i-have-to-return-some-videotapes/';
+    const possibleRoutes = ['editor'];
+
+    return tasks.build({
+      base: hostPath
+    }).then(() =>
+      // Add .nojekyll to disable gh-pages jekyll routing
+      promisify(fs.writeFile, fileDest + '.nojekyll', '')
+    ).then(() =>
+      // Create folder and copy index.html for every possible route
+      Promise.all(possibleRoutes.map(route =>
+        new Promise(resolve => fs.mkdir(fileDest + route, resolve))
+        .then(() => promisify(fs.readFile, fileDest + 'index.html'))
+        .then(buf => promisify(fs.writeFile, fileDest + route + '/index.html', buf))
+      ))
+    );
   },
 
   serve() {
