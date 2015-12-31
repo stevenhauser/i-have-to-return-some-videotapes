@@ -21,8 +21,8 @@ const tasks = {
       return new Promise((resolve, reject) => express()
         .use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
         .use(webpackHotMiddleware(compiler))
-        .use('/assets', express.static(path.join(__dirname, 'assets')))
-        .get('*', (req, res) => res.sendFile(path.join(__dirname, 'index.html')))
+        .use('/assets', express.static(path.join(__dirname, 'static/assets')))
+        .get('*', (req, res) => res.sendFile(path.join(__dirname, 'static/index.html')))
         .listen(PORT, 'localhost', (err) => {
           if (err) { return reject(err); }
           console.log(`Listening on port ${PORT}`);
