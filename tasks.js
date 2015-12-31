@@ -1,3 +1,4 @@
+import fs from 'fs';
 import path from 'path';
 import webpack from 'webpack';
 import express from 'express';
@@ -5,9 +6,15 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import config from './webpack.config';
 
+const promisify = (fn, ...args) => new Promise((resolve, reject) =>
+  fn(...args, (err, ...result) => err ? reject(err) : resolve(...result))
+);
+
 const tasks = {
   serve() {
-    return Promise.resolve().then(() => {
+    return tasks.templates({
+      base: '/'
+    }).then(() => {
       const compiler = webpack(config);
       const PORT = 3000;
 
@@ -23,6 +30,18 @@ const tasks = {
         })
       );
     });
+  },
+
+  templates(vars) {
+    const templateSrc = 'src/templates/';
+    const templateDest = 'static/';
+    const inflate = template => template.replace(/{{([^}]+)}}/g, (match, name) => vars[name]);
+
+    return promisify(fs.readdir, templateSrc)
+      .then(files => Promise.all(files.map(file =>
+        promisify(fs.readFile, templateSrc + file)
+          .then(buf => promisify(fs.writeFile, templateDest + file, inflate(buf.toString())))
+      )));
   }
 };
 
