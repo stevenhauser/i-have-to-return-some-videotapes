@@ -17,7 +17,9 @@ module.exports = (opts={}) => ({
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin(opts.env)
+    new webpack.DefinePlugin(Object.assign({
+      BASENAME: JSON.stringify('/')
+    }, opts.env || {}))
   ].concat(!opts.minify ? [] : new webpack.optimize.UglifyJsPlugin({
     global: true,
     mangle: { toplevel: true },
