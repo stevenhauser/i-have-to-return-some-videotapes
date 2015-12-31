@@ -4,17 +4,36 @@ import webpack from 'webpack';
 import express from 'express';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import config from './webpack.config';
+import webpackConfig from './webpack.config';
 
 const promisify = (fn, ...args) => new Promise((resolve, reject) =>
   fn(...args, (err, ...result) => err ? reject(err) : resolve(...result))
 );
 
 const tasks = {
+  build() {
+    return tasks.templates({
+      base: '/'
+    }).then(() => {
+      const config = webpackConfig({
+        devtool: 'source-map',
+        env: {
+          'process.env': { 'NODE_ENV': JSON.stringify('production') }
+        },
+        minify: true
+      })
+
+      return promisify(webpack, config).then(stats => console.log(stats.toString({ timings: true })));
+    })
+  },
+
   serve() {
     return tasks.templates({
       base: '/'
     }).then(() => {
+      const config = webpackConfig({
+        devtool: 'eval-source-map'
+      });
       const compiler = webpack(config);
       const PORT = 3000;
 

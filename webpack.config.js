@@ -1,8 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 
-module.exports = {
-  devtool: 'eval-source-map',
+module.exports = (opts={}) => ({
+  devtool: opts.devtool,
   resolve: {
     modulesDirectories: ['node_modules', 'src']
   },
@@ -16,8 +16,13 @@ module.exports = {
     publicPath: '/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin(opts.env)
+  ].concat(!opts.minify ? [] : new webpack.optimize.UglifyJsPlugin({
+    global: true,
+    mangle: { toplevel: true },
+    compress: { unsafe: true, dead_code: true }
+  })),
   module: {
     loaders: [{
       test: /\.js$/,
@@ -28,4 +33,4 @@ module.exports = {
       loaders: ['style', 'css', 'autoprefixer', 'sass']
     }]
   }
-};
+});
