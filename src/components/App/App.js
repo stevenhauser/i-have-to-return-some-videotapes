@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import { Link } from 'react-router';
 
+import { EDITOR_PATH } from 'utils/urls';
+
 import { createPureComponent } from 'utils/createPureComponent';
 
 export default createPureComponent({
@@ -10,8 +12,8 @@ export default createPureComponent({
   displayName: 'App',
 
   renderLink() {
-    const isEditing = this.props.location.pathname === '/editor';
-    const to = isEditing ? '/' : '/editor';
+    const isEditing = this.props.location.pathname.indexOf(EDITOR_PATH) > -1;
+    const to = isEditing ? '/' : EDITOR_PATH;
     const text = isEditing ? 'Play this level' : 'Edit this level';
     return (<Link to={to}>{text}</Link>);
   },

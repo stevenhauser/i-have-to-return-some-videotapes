@@ -1,4 +1,7 @@
-import { createHistory } from 'history';
+import {
+  createHistory,
+  useBasename
+} from 'history';
 
 import {
   compose,
@@ -13,9 +16,18 @@ import {
 
 import thunk from 'redux-thunk';
 
+import { BASE_PATH } from 'utils/urls';
+
 import * as appReducer from 'state';
 
 import { initialState } from 'state/initialState';
+
+const createHistoryWithBasename = (opts = {}) => {
+  return useBasename(createHistory)({
+    ...opts,
+    basename: `/${BASE_PATH}`
+  });
+};
 
 const routerStateSelector = (state) => state.get('router');
 
@@ -31,6 +43,6 @@ const reducer = (state = initialState, action) => {
 export default function createStore() {
   return compose(
     applyMiddleware(thunk),
-    reduxReactRouter({ createHistory, routerStateSelector })
+    reduxReactRouter({ createHistory: createHistoryWithBasename, routerStateSelector })
   )(createReduxStore)(reducer);
 };
