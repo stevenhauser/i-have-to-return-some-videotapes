@@ -1,0 +1,17 @@
+# Prep for pushing
+git branch -D gh-pages
+git checkout -b gh-pages
+
+# Build the static assets and symlink them
+npm run build
+npm run symlink
+
+# Little tweaks
+touch .nojekyll
+
+# DO IT
+git add .
+git add -f static/
+git add -f editor/
+git commit -m "Deploy the new stuff"
+git push -f origin gh-pages
