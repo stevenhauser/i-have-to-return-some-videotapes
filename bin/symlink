@@ -1,0 +1,5 @@
+# Fake the routing by setting up symlinks
+mkdir -p editor
+ln -sf ../static ./editor/static
+ln -sf ../assets ./editor/assets
+ln -sf ../index.html ./editor/index.html

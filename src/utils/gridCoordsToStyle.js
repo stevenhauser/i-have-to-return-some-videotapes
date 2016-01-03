@@ -3,16 +3,24 @@ import {
   PX_PER_COL
 } from 'utils/constants';
 
+export function gridColsToPx(cols) {
+  return `${PX_PER_COL * cols}px`;
+};
+
+export function gridRowsToPx(rows) {
+  return `${PX_PER_ROW * rows}px`
+};
+
 export function gridCoordsToOffsetStyle(row, col) {
   return {
-    top: `${PX_PER_ROW * row}px`,
-    left: `${PX_PER_COL * col}px`,
+    top: gridRowsToPx(row),
+    left: gridColsToPx(col),
   };
 };
 
 export function gridCoordsToDimStyle(numCols, numRows) {
   return {
-    height: `${PX_PER_ROW * numRows}px`,
-    width: `${PX_PER_COL * numCols}px`,
+    height: gridRowsToPx(numRows),
+    width: gridColsToPx(numCols),
   };
 };

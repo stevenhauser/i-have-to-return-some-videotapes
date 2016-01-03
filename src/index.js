@@ -9,6 +9,8 @@ import { IndexRoute, Route } from 'react-router';
 
 import createStore from 'utils/createStore';
 
+import { EDITOR_PATH } from 'utils/urls';
+
 import { toChangeLevel } from 'state/actions/changeLevel';
 
 import App from 'components/App/App';
@@ -27,7 +29,7 @@ const app = (
     <ReduxRouter>
       <Route path="/" component={App}>
         <IndexRoute component={GameContainer} />
-        <Route path="editor" component={EditorContainer} />
+        <Route path={EDITOR_PATH} component={EditorContainer} />
         <Route path="*" component={GameContainer} />
       </Route>
     </ReduxRouter>

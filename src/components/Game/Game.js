@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import { createPureComponent } from 'utils/createPureComponent';
 
+import { gridColsToPx } from 'utils/gridCoordsToStyle';
+
 import Camera from 'components/Camera/Camera';
 import Corngratulations from 'components/Corngratulations/Corngratulations';
 import HudContainer from 'components/Hud/HudContainer';
@@ -29,9 +31,10 @@ export default createPureComponent({
   render() {
     const { hasWon, numCols, numRows } = this.props;
     const corngrats = hasWon && (<Corngratulations />);
+    const style = { maxWidth: gridColsToPx(numCols) }
 
     return (
-      <div className="game">
+      <div className="game" style={style}>
         <Camera numCols={numCols} numRows={numRows}>
           <WorldContainer>
             <PlayerContainer />
