@@ -17,7 +17,7 @@ Note that the game works best on OSX due to the emoji font.
 
 This is a hackathon game that was created in about 24 (non consecutive) hours, at least for its first version. It's built primarily with [React][react], [Redux][redux], [Immutable][immutable], and [lodash][lodash], simply because I know those tools pretty well and wanted to see how well they'd work for a game. [Babel][babel] and [webpack][webpack] take care of the transpiling and bundling, and [Sass][sass] helps out with the stylesheets. There are [many other great tools][package] I've used here and I couldn't have built this game so rapidly without them. Muchas gracias to all the people who worked on these projects and all the other technologies that made this game possible; it's one of my favorite things I've ever worked on.
 
-[game]:      http://stevenhauser.com/i-have-to-return-some-videotapes
+[game]:      https://videotapes.stevenhauser.dev/
 [localhost]: http://localhost:3000
 [package]:   https://github.com/stevenhauser/i-have-to-return-some-videotapes/blob/master/package.json
 [react]:     https://facebook.github.io/react/
