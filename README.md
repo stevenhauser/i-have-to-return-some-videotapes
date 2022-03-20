@@ -4,7 +4,7 @@ Collect and return your videotapes that are scattered about the woods. Gather po
 
 Are you ready to return some videotapes? [Why yes, yes I am.][game]
 
-Note that the game works best on OSX due to the emoji font, however [twemoji](https://github.com/twitter/twemoji) adds support for other OSes. Seems to work pretty well cross browser though, but it was tested in Chrome.
+Note that the game works best on OSX due to the emoji font.
 
 ## Developing
 

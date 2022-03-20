@@ -5,15 +5,6 @@
   font: #{$cellSize}/#{$cellSize} "Apple Color Emoji";
   z-index: 1;
 
-  .twemoji &::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: auto;
-  }
-
   $entities: (
     ambulance: "🚑",
     banana: "🍌",
@@ -82,11 +73,6 @@
 
   @each $entity, $value in $entities {
     &--#{$entity}::before { content: $value; }
-
-    .twemoji &--#{$entity}::before {
-      content: '';
-      background-image: twemoji-url($value);
-    }
   }
 
   &--storesign--v,

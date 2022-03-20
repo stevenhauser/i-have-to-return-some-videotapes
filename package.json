@@ -4,7 +4,7 @@
   "description": "Collect and return your videotapes that are scattered about the woods",
   "main": "src/index.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack -p --devtool=source-map",
+    "build": "NODE_ENV=production webpack --devtool=source-map",
     "deploy": "./bin/deploy",
     "start": "babel-node server.js",
     "symlink": "./bin/symlink",
@@ -38,19 +38,16 @@
     "redux-thunk": "^1.0.0"
   },
   "devDependencies": {
-    "autoprefixer-loader": "^3.1.0",
-    "babel": "^5.0.0",
-    "babel-loader": "^5.0.0",
-    "babel-plugin-react-transform": "^1.1.1",
-    "css-loader": "^0.22.0",
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.7.1",
     "express": "^4.13.3",
-    "node-sass": "^3.4.1",
-    "react-transform-hmr": "^1.0.1",
-    "sass-loader": "^3.1.1",
-    "style-loader": "^0.13.0",
-    "twemoji": "^1.4.1",
-    "webpack": "^1.12.3",
-    "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.4.1"
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.9.2"
   }
 }

@@ -24,7 +24,7 @@ export default createPureComponent({
   render() {
     const { col, row, children } = this.props;
     const style = gridCoordsToOffsetStyle(row, col);
-    const className = classNames('world', { twemoji: !hasEmoji });
+    const className = classNames('world');
     return (
       <div className={className} style={style}>
         <EntitiesContainer />

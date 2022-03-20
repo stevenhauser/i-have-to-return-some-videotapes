@@ -19,7 +19,7 @@ export const ignores  = (type) => (type.indexOf('@@') === 0);
 
 export function reduce(state = initialState, action) {
   const { type } =  action;
-  const reducer = reducers[type] || () => state;
+  const reducer = reducers[type] || (() => state);
   if ( !(supports(type) || ignores(type)) ) {
     console.warn(`No reducer for ${type}.`);
   }
